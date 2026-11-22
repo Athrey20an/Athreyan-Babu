@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Athreyan Babu</title>
+<meta name="description" content="Athreyan Babu: Data Analysis, Customer Success and Project Coordination. MSc Data Science & AI, Middlesex University Dubai.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* Layout idea: a career track (2019 to 2027) sits under the name like a data timeline; sections below read as a clean two-column record. */
+/* Layout idea: one fluid column that grows with the screen (up to 1280px); compact hero with photo, numbers, then short sections. Light theme only. */
 :root {
-  /* Light-only theme: soft sky white, slate ink, friendly blue accent, mint for "now" */
   --bg: #F7F9FC;
   --bg-tint: #EAF2FD;
   --surface: #FFFFFF;
@@ -19,196 +19,146 @@
   --line: #E2E8F0;
   --accent: #3D7EDB;
   --accent-soft: #E9F1FD;
-  --seg-edu: #B9C6D3;
-  --seg-work: #3D7EDB;
-  --seg-now: #2EAD8F;
+  --mint: #2EAD8F;
   --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gutter: clamp(20px, 4vw, 64px);
+  --label-col: clamp(130px, 14vw, 220px);
   color-scheme: light;
 }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
-  background: linear-gradient(180deg, var(--bg-tint) 0, var(--bg) 640px) no-repeat, var(--bg);
+  background: linear-gradient(180deg, var(--bg-tint) 0, var(--bg) 70vh) no-repeat, var(--bg);
   color: var(--ink);
   font-family: var(--body);
-  font-size: 17px;
+  font-size: clamp(15.5px, 0.25vw + 13px, 18px);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 a { color: var(--accent); text-underline-offset: 3px; }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+img { max-width: 100%; }
 
-.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+.wrap { width: min(1280px, 100% - 2 * var(--gutter)); margin: 0 auto; }
 
 /* Top bar */
-.top {
-  display: flex; justify-content: space-between; align-items: center; gap: 16px;
-  padding: 22px 0; font-family: var(--mono); font-size: 13px; color: var(--muted);
-  flex-wrap: wrap;
-}
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; padding: 20px 0; font-family: var(--mono); font-size: 13px; color: var(--muted); flex-wrap: wrap; }
 .top nav { display: flex; gap: 20px; flex-wrap: wrap; }
 .top nav a { color: var(--muted); text-decoration: none; }
 .top nav a:hover { color: var(--ink); }
 .status { display: inline-flex; align-items: center; gap: 8px; }
-.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--seg-now); box-shadow: 0 0 0 4px color-mix(in srgb, var(--seg-now) 20%, transparent); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 4px rgba(46,173,143,.18); }
 
 /* Hero */
-.hero { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
-.kicker { font-family: var(--mono); font-size: 13px; letter-spacing: .04em; color: var(--accent); margin: 0 0 18px; }
-h1 {
-  font-family: var(--display); font-weight: 800;
-  font-size: clamp(52px, 10vw, 118px); line-height: .92; letter-spacing: -0.035em;
-  margin: 0; text-wrap: balance;
-}
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) clamp(200px, 24vw, 340px); gap: clamp(28px, 5vw, 80px); align-items: center; padding: clamp(28px, 5vw, 64px) 0 clamp(28px, 4vw, 48px); }
+.kicker { font-family: var(--mono); font-size: 13px; letter-spacing: .03em; color: var(--accent); margin: 0 0 14px; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(46px, 7.2vw, 112px); line-height: .95; letter-spacing: -0.035em; margin: 0; }
 h1 .last { color: var(--accent); }
-.lede { max-width: 620px; font-size: 20px; line-height: 1.5; color: var(--ink); margin: 28px 0 0; text-wrap: pretty; }
+.lede { max-width: 34em; font-size: 1.12em; line-height: 1.5; margin: 22px 0 0; text-wrap: pretty; }
 .lede span { color: var(--muted); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.portrait { margin: 0; }
+.portrait img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; box-shadow: 0 16px 40px rgba(61,126,219,.18); }
 
-/* Career track */
-.track { margin-top: 52px; }
-.track-head { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; color: var(--muted); margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
-.legend { display: flex; gap: 16px; flex-wrap: wrap; }
-.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
-.rail { position: relative; height: 128px; border-top: 1px solid var(--line); }
-.yr { position: absolute; top: 0; bottom: 0; border-left: 1px dashed var(--line); }
-.yr span { position: absolute; bottom: -22px; left: 4px; font-family: var(--mono); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
-.seg {
-  position: absolute; height: 30px; border-radius: 4px; color: #fff;
-  font-size: 12.5px; font-weight: 500; padding: 0 10px; display: flex; align-items: center;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  animation: grow .9s cubic-bezier(.2,.7,.2,1) both;
-  transform-origin: left center;
-}
-.seg.edu { background: var(--seg-edu); }
-.seg.work { background: var(--seg-work); }
-.seg.now { background: var(--seg-now); }
-@keyframes grow { from { transform: scaleX(.15); opacity: .4; } to { transform: scaleX(1); opacity: 1; } }
-@media (prefers-reduced-motion: reduce) { .seg { animation: none; } }
-.track-note { margin-top: 34px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
-
-/* Sections */
-section { padding: 64px 0; border-bottom: 1px solid var(--line); }
-.grid { display: grid; grid-template-columns: 220px 1fr; gap: 40px; }
-h2 {
-  font-family: var(--mono); font-weight: 500; font-size: 13px; letter-spacing: .06em;
-  text-transform: uppercase; color: var(--muted); margin: 6px 0 0;
-}
-.prose p { margin: 0 0 18px; max-width: 64ch; }
-.prose p:last-child { margin-bottom: 0; }
-
-/* Roles */
-.roles { display: grid; gap: 0; }
-.role { display: grid; grid-template-columns: 150px 1fr; gap: 24px; padding: 26px 0; border-top: 1px solid var(--line); }
-.role:first-child { border-top: 0; padding-top: 0; }
-.when { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 4px; }
-.role h3 { font-family: var(--display); font-weight: 700; font-size: 24px; line-height: 1.2; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
-.org { color: var(--accent); font-weight: 500; margin: 2px 0 10px; }
-.role p { margin: 0; color: var(--ink); max-width: 60ch; }
-.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-.tag { font-family: var(--mono); font-size: 12px; padding: 3px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--ink); }
-
-/* Skills */
-.skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-.skills h3 { font-family: var(--display); font-size: 19px; font-weight: 700; margin: 0 0 10px; }
-.skills ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
-.skills li { padding-left: 16px; position: relative; color: var(--ink); }
-.skills li::before { content: ""; position: absolute; left: 0; top: .72em; width: 7px; height: 2px; background: var(--accent); }
-
-/* Contact */
-.contact h3 { font-family: var(--display); font-weight: 800; font-size: clamp(32px, 5vw, 52px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 18px; text-wrap: balance; }
-.links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-.btn {
-  display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 8px;
-  font-weight: 500; text-decoration: none; border: 1px solid var(--line); color: var(--ink); background: var(--surface);
-}
-.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
-.btn.todo { border-style: dashed; color: var(--muted); }
-
-/* Hero actions */
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-
-/* Project detail */
-.kpi-formula { font-family: var(--mono); font-size: 13.5px; line-height: 1.6; background: var(--accent-soft); padding: 12px 14px; border-radius: 8px; margin: 18px 0 0; overflow-x: auto; }
-.facts { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 16px 0 0; padding: 0; list-style: none; font-family: var(--mono); font-size: 13px; color: var(--muted); }
-.facts b { color: var(--ink); font-weight: 500; }
-.panels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
-.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; box-shadow: 0 1px 2px rgba(42,54,68,.04), 0 6px 18px rgba(61,126,219,.06); }
-.panel h4 { font-family: var(--display); font-size: 17px; font-weight: 700; margin: 0 0 4px; }
-.panel .sub { font-size: 13px; color: var(--muted); margin: 0 0 14px; }
-.bars { display: grid; gap: 10px; }
-.bar-row { display: grid; grid-template-columns: 128px 1fr 52px; align-items: center; gap: 10px; font-size: 13.5px; }
-.bar-track { height: 12px; background: color-mix(in srgb, var(--line) 70%, transparent); border-radius: 3px; overflow: hidden; }
-.bar-fill { height: 100%; background: var(--accent); border-radius: 3px; }
-.bar-row.best .bar-fill { background: var(--seg-now); }
-.bar-row.best { font-weight: 600; }
-.val { font-family: var(--mono); font-size: 12.5px; text-align: right; font-variant-numeric: tabular-nums; }
-.panel .note { font-size: 12.5px; color: var(--muted); margin: 14px 0 0; }
-.proj-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-.proj-links .btn { padding: 9px 14px; font-size: 14.5px; }
-
-/* Case study inside role */
-.role-case { margin-top: 18px; border-left: 4px solid var(--accent); }
-.role-case h4 { font-size: 16.5px; margin-bottom: 10px; text-wrap: balance; }
-.role-case p { margin: 0 0 10px; font-size: 15px; max-width: 64ch; }
-.role-case p:last-child { margin-bottom: 0; }
-/* Case study */
-.case-meta { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin: 6px 0 22px; }
-.case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.case-grid .panel ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 15.5px; }
-.case-grid .panel p { margin: 0; font-size: 15.5px; }
-.case-grid .panel li::marker { color: var(--accent); }
-.case-grid .wide { grid-column: 1 / -1; }
-.case-grid .panel.role-panel { border-left: 4px solid var(--accent); }
-
-@media (max-width: 760px) {
-  .panels, .case-grid { grid-template-columns: 1fr; }
-  .bar-row { grid-template-columns: 104px 1fr 48px; font-size: 12.5px; }
-}
-
-/* Hero with portrait */
-.hero-top { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: end; }
-.portrait { margin: 0; position: relative; }
-.portrait img { display: block; width: 100%; height: auto; border-radius: 14px; aspect-ratio: 4 / 5; object-fit: cover; box-shadow: 0 12px 32px rgba(61,126,219,.16); }
-.portrait::after { content: ""; position: absolute; left: -10px; bottom: -10px; width: 64px; height: 6px; background: var(--accent); border-radius: 3px; }
-@media (max-width: 760px) {
-  .hero-top { grid-template-columns: 1fr; gap: 28px; }
-  .portrait { max-width: 240px; order: -1; }
-}
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 10px; font: inherit; font-size: 15px; font-weight: 500; text-decoration: none; border: 1px solid var(--line); color: var(--ink); background: var(--surface); cursor: pointer; }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary:hover { background: #2F6CC6; }
 
 /* Stats */
-.stats { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 44px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.stat { padding: 20px 16px 20px 0; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stat { padding: 18px 16px 18px 0; }
 .stat + .stat { padding-left: 16px; border-left: 1px solid var(--line); }
-.stat b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(28px, 4vw, 40px); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-.stat span { display: block; margin-top: 8px; font-size: 13.5px; color: var(--muted); line-height: 1.35; }
-.role ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; max-width: 62ch; }
+.stat b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(26px, 2.8vw, 40px); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.stat span { display: block; margin-top: 6px; font-size: 13.5px; color: var(--muted); line-height: 1.35; }
+
+/* Sections */
+section { padding: clamp(36px, 5vw, 64px) 0; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: 0; }
+.grid { display: grid; grid-template-columns: var(--label-col) minmax(0, 1fr); gap: clamp(16px, 3vw, 48px); }
+h2 { font-family: var(--mono); font-weight: 500; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 6px 0 0; }
+h3 { font-family: var(--display); font-weight: 600; font-size: clamp(20px, 1.6vw, 24px); line-height: 1.25; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+h4 { font-family: var(--display); font-weight: 600; font-size: 16.5px; margin: 0 0 6px; }
+
+/* Roles */
+.role { display: grid; grid-template-columns: clamp(120px, 11vw, 160px) minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--line); }
+.role:first-child { border-top: 0; padding-top: 0; }
+.role:last-child { padding-bottom: 0; }
+.when { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 3px; }
+.org { color: var(--accent); font-weight: 500; margin: 2px 0 10px; }
+.org small { color: var(--muted); font-weight: 400; font-size: 13.5px; }
+.role ul { margin: 0; padding-left: 18px; display: grid; gap: 5px; max-width: 70ch; }
 .role li::marker { color: var(--accent); }
-.meta { font-family: var(--mono); font-size: 12px; color: var(--muted); margin: -6px 0 10px; }
-.list2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; list-style: none; margin: 0; padding: 0; }
-.list2 li { padding: 12px 0; border-top: 1px solid var(--line); }
-.list2 li b { display: block; font-weight: 600; }
-.list2 li span { font-size: 14px; color: var(--muted); }
-.email-line { font-family: var(--mono); font-size: 14px; color: var(--muted); margin-top: 16px; }
-button.btn { font: inherit; cursor: pointer; }
-@media (max-width: 760px) {
+
+details.case { margin-top: 14px; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 12px; max-width: 76ch; }
+details.case summary { cursor: pointer; padding: 12px 16px; font-weight: 600; font-size: 15px; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+details.case summary::-webkit-details-marker { display: none; }
+details.case summary::after { content: "+"; font-family: var(--mono); color: var(--accent); }
+details.case[open] summary::after { content: "−"; }
+details.case .body { padding: 0 16px 14px; font-size: 15px; }
+details.case p { margin: 0 0 10px; }
+details.case p:last-child { margin: 0; }
+
+/* Project */
+.proj-intro { margin: 8px 0 0; max-width: 72ch; }
+.formula { font-family: var(--mono); font-size: 13px; background: var(--accent-soft); padding: 10px 14px; border-radius: 8px; margin: 14px 0 0; }
+.panels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(42,54,68,.04), 0 6px 18px rgba(61,126,219,.06); }
+.panel .sub { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+.bars { display: grid; gap: 9px; }
+.bar-row { display: grid; grid-template-columns: 130px minmax(0, 1fr) 52px; align-items: center; gap: 10px; font-size: 13.5px; }
+.bar-track { height: 11px; background: #EDF1F6; border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+.bar-row.best { font-weight: 600; }
+.bar-row.best .bar-fill { background: var(--mint); }
+.val { font-family: var(--mono); font-size: 12.5px; text-align: right; font-variant-numeric: tabular-nums; }
+.panel .note { font-size: 12.5px; color: var(--muted); margin: 12px 0 0; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
+/* Tags */
+.tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.tag { font-family: var(--mono); font-size: 12.5px; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--ink); }
+
+/* Two- and three-column info blocks */
+.cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px clamp(24px, 3vw, 48px); }
+.cols h4 { font-size: 15px; font-family: var(--mono); font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 10px; }
+.plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 15px; }
+.plain b { font-weight: 600; }
+.plain span { color: var(--muted); }
+.skill-group + .skill-group { margin-top: 14px; }
+.skill-group p { margin: 0 0 6px; font-size: 14px; font-weight: 600; }
+
+/* Contact */
+.contact-head { font-family: var(--display); font-weight: 800; font-size: clamp(28px, 3.4vw, 46px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 10px; }
+.contact-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; list-style: none; margin: 22px 0 0; padding: 0; max-width: 640px; }
+.contact-list li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 15px; }
+.contact-list b { display: block; font-size: 13px; font-weight: 500; color: var(--muted); }
+
+footer { padding: 24px 0 40px; font-family: var(--mono); font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--line); }
+
+/* Tablet */
+@media (max-width: 900px) {
   .stats { grid-template-columns: 1fr 1fr; }
-  .stat, .stat + .stat { padding: 16px 12px 16px 0; border-left: 0; border-top: 1px solid var(--line); }
-  .stat:nth-child(-n+2) { border-top: 0; }
-  .list2 { grid-template-columns: 1fr; }
+  .stat, .stat + .stat { padding: 14px 12px 14px 0; border-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .stat:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
+  .grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .panels { grid-template-columns: minmax(0, 1fr); }
 }
-
-footer { padding: 28px 0 48px; font-family: var(--mono); font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-
-@media (max-width: 760px) {
-  .grid { grid-template-columns: 1fr; gap: 18px; }
-  .role { grid-template-columns: 1fr; gap: 6px; }
-  .skills { grid-template-columns: 1fr; }
-  .rail { height: 150px; }
-  .seg { font-size: 11px; padding: 0 6px; }
-  .hero { padding-top: 32px; }
+/* Phone */
+@media (max-width: 620px) {
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .portrait { order: -1; width: 180px; }
+  .portrait img { border-radius: 50%; aspect-ratio: 1; object-position: 50% 18%; }
+  .role { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .bar-row { grid-template-columns: 108px minmax(0, 1fr) 46px; font-size: 12.5px; }
+  .top nav { gap: 14px; }
+  .cols, .contact-list { grid-template-columns: minmax(0, 1fr); }
 }
 </style>
 </head>
@@ -218,117 +168,78 @@ footer { padding: 28px 0 48px; font-family: var(--mono); font-size: 12px; color:
   <header class="top">
     <div class="status"><span class="dot" aria-hidden="true"></span>Dubai, UAE · Open to on-site or hybrid roles</div>
     <nav aria-label="Sections">
-      <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#project">Project</a>
-      <a href="#education">Education</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <div class="hero">
-    <div class="hero-top">
-      <div>
-        <p class="kicker">Data Analysis · Customer Success · Project Coordination</p>
-        <h1>Athreyan<br><span class="last">Babu</span></h1>
-        <p class="lede">I've tested banking data with Oracle SQL and managed 17 strategic US accounts. <span>Now doing an MSc in Data Science &amp; AI at Middlesex University Dubai.</span></p>
-        <div class="hero-actions">
-          <a class="btn primary" href="https://athrey20an.github.io/Personal-Site/Athreyan_Babu_Resume.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
-          <a class="btn" href="#contact">Contact me</a>
-        </div>
+    <div>
+      <p class="kicker">Data Analysis · Customer Success · Project Coordination</p>
+      <h1>Athreyan<br><span class="last">Babu</span></h1>
+      <p class="lede">I've reconciled banking data with Oracle SQL and managed 17 strategic US accounts. <span>Now doing an MSc in Data Science &amp; AI at Middlesex University Dubai.</span></p>
+      <div class="actions">
+        <a class="btn primary" href="https://athrey20an.github.io/Personal-Site/Athreyan_Babu_Resume.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+        <a class="btn" href="#contact">Contact me</a>
       </div>
-      <figure class="portrait">
-        <img src="assets/athreyan.jpg" width="640" height="800" alt="Portrait of Athreyan Babu">
-      </figure>
     </div>
-
-    <div class="stats">
-      <div class="stat"><b>2.5+</b><span>years in engineering, customer success and coordination</span></div>
-      <div class="stat"><b>17</b><span>strategic US customer accounts managed</span></div>
-      <div class="stat"><b>$950K+</b><span>in customer proposals priced and costed</span></div>
-      <div class="stat"><b>150+</b><span>projects coordinated for 43 US customers</span></div>
-      <div class="stat"><b>2–3</b><span>day turnaround held across a high-volume queue</span></div>
-    </div>
-
-    <div class="track" aria-label="Career timeline from 2019 to 2027">
-      <div class="track-head">
-        <span>Career track</span>
-        <span class="legend">
-          <span><i style="background:var(--seg-edu)"></i>Education</span>
-          <span><i style="background:var(--seg-work)"></i>Work</span>
-          <span><i style="background:var(--seg-now)"></i>Now</span>
-        </span>
-      </div>
-      <div class="rail" id="rail"></div>
-      <div class="track-note">Mechanical engineering → project coordination → banking data QA → customer success → MSc</div>
-    </div>
+    <figure class="portrait">
+      <img src="assets/athreyan.jpg" width="540" height="675" alt="Portrait of Athreyan Babu">
+    </figure>
   </div>
 
-  <section id="about">
-    <div class="grid">
-      <h2>About</h2>
-      <div class="prose">
-        <p>I studied mechanical engineering, then started my career coordinating renewable-energy projects for US customers at Illumine Industries. In that role I handled more than 150 projects for 43 customers, from order to delivery.</p>
-        <p>At LTIMindtree I worked on a global US bank's applications. I ran SIT/UAT and ETL testing, reconciled high-volume banking data with Oracle SQL before production releases, and fixed failed batch jobs using UNIX error logs.</p>
-        <p>I returned to Illumine as a Customer Success Engineer. I managed 17 strategic US accounts, priced proposals worth more than USD 950K, and delivered 15 customer programmes from signed proposal to final delivery.</p>
-        <p>Now I'm studying for an MSc in Data Science and AI and building machine learning models in Python. I'm looking for roles that combine data skills with client work, in Dubai, on-site or hybrid.</p>
-      </div>
-    </div>
-  </section>
+  <div class="stats">
+    <div class="stat"><b>2.5+</b><span>years across engineering, customer success and coordination</span></div>
+    <div class="stat"><b>17</b><span>strategic US accounts managed</span></div>
+    <div class="stat"><b>$950K+</b><span>in proposals priced and costed</span></div>
+    <div class="stat"><b>150+</b><span>projects coordinated for 43 US customers</span></div>
+  </div>
 
   <section id="experience">
     <div class="grid">
       <h2>Experience</h2>
-      <div class="roles">
+      <div>
         <article class="role">
-          <div class="when">Jan 2026 – Sep 2026</div>
+          <div class="when">Jan – Sep 2026</div>
           <div>
             <h3>Customer Success Engineer</h3>
-            <div class="org">Illumine Industries Pvt. Ltd.</div>
-            <div class="meta">India · US renewable-energy customers</div>
+            <div class="org">Illumine Industries <small>· US renewable-energy customers</small></div>
             <ul>
-              <li>Managed a portfolio of 17 strategic US customer accounts as the main point of contact for enquiries, status updates and escalations.</li>
-              <li>Produced account-health reports, forecasts and pipeline updates to support leadership planning and delivery decisions.</li>
-              <li>Priced and costed customer proposals totalling USD 950K+, including a USD 700K programme, and handled commercial discussions directly with clients.</li>
-              <li>Delivered 15 customer programmes from signed proposal to final delivery, coordinating engineering, procurement and logistics teams.</li>
-              <li>Led a transformer procurement escalation, coordinating suppliers and internal teams to protect the customer's delivery timeline.</li>
-              <li>Kept customer records and activity history in the CRM; mentored 2 interns on customer communication and account processes.</li>
+              <li>Main point of contact for 17 strategic US accounts, handling enquiries, status updates and escalations.</li>
+              <li>Priced and costed proposals worth USD 950K+, including a USD 700K programme, and led commercial discussions.</li>
+              <li>Delivered 15 programmes from signed proposal to delivery; produced account-health reports, forecasts and pipeline updates for leadership.</li>
             </ul>
-            <div class="tags"><span class="tag">Account management</span><span class="tag">Forecasting</span><span class="tag">Proposal pricing</span><span class="tag">CRM</span></div>
-            <div class="panel role-case">
-              <h4>Case study: transformer terminal clearance on a commercial solar project</h4>
-              <p><b>Problem.</b> Pad-mounted transformers supplied for several project sites had too little clearance between the neutral (X0) and Line A (X1) terminals to fit the required UL-listed lugs and conductors. That raised NEC compliance, safety and equipment suitability concerns, and it had to be fixed without more delays or risk to the warranty.</p>
-              <p><b>What I did.</b> I led procurement coordination and supplier engagement. I gathered measurements, site photos and technical details from engineering, field contractors and suppliers. I evaluated alternatives such as UL-listed neutral extension lugs, approached other manufacturers, and coordinated a formal technical request to the transformer manufacturer on terminal spacing and approved termination methods. Throughout, I weighed cost, warranty responsibility and technical approvals.</p>
-              <p><b>Outcome.</b> A potential workaround was identified for engineering and manufacturer validation, and the team gained an alternative sourcing route. It also showed the value of reviewing equipment specifications early.</p>
-            </div>
+            <details class="case">
+              <summary>Case study: transformer terminal clearance on a solar project</summary>
+              <div class="body">
+                <p><b>Problem.</b> Pad-mounted transformers for several sites had too little clearance between the neutral (X0) and Line A (X1) terminals to fit the required UL-listed lugs, raising NEC compliance, safety and warranty concerns.</p>
+                <p><b>What I did.</b> Led procurement coordination and supplier engagement. Gathered measurements and site photos, evaluated UL-listed neutral extension lugs, approached other manufacturers, and coordinated a formal technical request to the transformer manufacturer, weighing cost, warranty and approvals.</p>
+                <p><b>Outcome.</b> A potential workaround was identified for engineering and manufacturer validation, and the team gained an alternative sourcing route.</p>
+              </div>
+            </details>
           </div>
         </article>
         <article class="role">
           <div class="when">Jun 2024 – Aug 2025</div>
           <div>
             <h3>Software Engineer</h3>
-            <div class="org">LTIMindtree</div>
-            <div class="meta">India · Client: global bank (US)</div>
+            <div class="org">LTIMindtree <small>· Client: global bank (US)</small></div>
             <ul>
               <li>Ran SIT/UAT and ETL testing, using Oracle SQL to validate and reconcile high-volume banking data before production releases.</li>
-              <li>Monitored 3–4 daily batch jobs in Control Center, diagnosed failures from UNIX error logs, and corrected and reran jobs until data loaded correctly.</li>
-              <li>Logged and tracked issues in the internal CRM, keeping clear records for audit and follow-up.</li>
+              <li>Monitored 3–4 daily batch jobs and fixed failures from UNIX error logs until data loaded correctly.</li>
             </ul>
-            <div class="tags"><span class="tag">Oracle SQL</span><span class="tag">ETL testing</span><span class="tag">SIT / UAT</span><span class="tag">UNIX</span></div>
           </div>
         </article>
         <article class="role">
           <div class="when">Sep 2023 – Jun 2024</div>
           <div>
             <h3>Project Coordinator</h3>
-            <div class="org">Illumine Industries Pvt. Ltd.</div>
-            <div class="meta">India · US renewable-energy customers</div>
+            <div class="org">Illumine Industries <small>· US renewable-energy customers</small></div>
             <ul>
-              <li>Coordinated 150+ projects for 43 US customers, managing schedules, documentation and customer communication from order to delivery.</li>
-              <li>Held a consistent 2–3 day turnaround across a high-volume project queue and kept customers informed on progress.</li>
+              <li>Coordinated 150+ projects for 43 US customers from order to delivery, holding a 2–3 day turnaround.</li>
             </ul>
-            <div class="tags"><span class="tag">Scheduling</span><span class="tag">Documentation</span><span class="tag">Customer communication</span></div>
           </div>
         </article>
       </div>
@@ -337,21 +248,11 @@ footer { padding: 28px 0 48px; font-family: var(--mono); font-size: 12px; color:
 
   <section id="project">
     <div class="grid">
-      <h2>Analytics project</h2>
+      <h2>Project</h2>
       <div>
-        <h3 style="font-family:var(--display);font-weight:700;font-size:28px;line-height:1.2;letter-spacing:-0.01em;margin:0;text-wrap:balance">Customer Experience Index (CXI) Prediction Model</h3>
-        <div class="case-meta">MSc coursework · Middlesex University Dubai · 2026</div>
-        <div class="prose">
-          <p>A marketplace team wants to flag products likely to disappoint customers early, so it can drop them or plan marketing to improve them. I built a product-level KPI from Amazon review data, then trained models to predict it from product attributes alone, with no review data as input.</p>
-        </div>
-        <p class="kpi-formula">CXI = 0.5 × (mean rating ÷ 5) + 0.3 × (mean normalised sentiment) + 0.2 × (share of reviews with ≥ 1 helpful vote)</p>
-        <ul class="facts">
-          <li><b>6,327</b> reviews</li>
-          <li><b>622</b> products with 5+ reviews</li>
-          <li><b>80/20</b> train/test split</li>
-          <li><b>12</b> input features incl. TF-IDF text</li>
-        </ul>
-
+        <h3>Customer Experience Index (CXI) Prediction Model</h3>
+        <p class="proj-intro">MSc coursework. I built a product-level customer experience KPI from 6,327 Amazon reviews, then predicted it for 622 products from product attributes alone, so a marketplace team can flag weak products early.</p>
+        <p class="formula">CXI = 0.5 × (mean rating ÷ 5) + 0.3 × (mean sentiment) + 0.2 × (share of reviews with a helpful vote)</p>
         <div class="panels">
           <div class="panel">
             <h4>Model comparison</h4>
@@ -361,168 +262,81 @@ footer { padding: 28px 0 48px; font-family: var(--mono); font-size: 12px; color:
               <div class="bar-row"><span>Random forest</span><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="val">0.320</span></div>
               <div class="bar-row"><span>Mean baseline</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span class="val">−0.008</span></div>
             </div>
-            <p class="note">Ridge had the lowest test error (MAE 0.037, RMSE 0.047 vs 0.045 and 0.059 for the baseline). The random forest scored 0.80 R² on training data but 0.32 on test, so it overfit.</p>
+            <p class="note">Random forest overfit (0.80 R² on training, 0.32 on test), so Ridge won.</p>
           </div>
           <div class="panel">
             <h4>What drives CXI</h4>
-            <p class="sub">Permutation importance: drop in test R² when a feature is shuffled</p>
+            <p class="sub">Permutation importance (drop in test R²)</p>
             <div class="bars">
               <div class="bar-row best"><span>Recent purchases</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="val">0.220</span></div>
               <div class="bar-row"><span>Best Sellers Rank</span><div class="bar-track"><div class="bar-fill" style="width:48.1%"></div></div><span class="val">0.106</span></div>
               <div class="bar-row"><span>Product text</span><div class="bar-track"><div class="bar-fill" style="width:28.7%"></div></div><span class="val">0.063</span></div>
-              <div class="bar-row"><span>Category</span><div class="bar-track"><div class="bar-fill" style="width:15.9%"></div></div><span class="val">0.035</span></div>
-              <div class="bar-row"><span>Has BSR</span><div class="bar-track"><div class="bar-fill" style="width:9.7%"></div></div><span class="val">0.021</span></div>
             </div>
-            <p class="note">Products with more recent purchases and a better sales rank scored higher on customer experience. Price and discount had little effect.</p>
+            <p class="note">Price and discount had little effect.</p>
           </div>
         </div>
-
-        <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span><span class="tag">Ridge regression</span><span class="tag">Random forest</span><span class="tag">TF-IDF</span><span class="tag">GridSearchCV</span></div>
-        <div class="proj-links">
-          <a class="btn" href="https://github.com/Athrey20an/Personal-Site/blob/main/projects/cxi/CXI_Prediction_Model.ipynb" target="_blank" rel="noopener">View notebook on GitHub</a>
-          <a class="btn" href="https://athrey20an.github.io/Personal-Site/projects/cxi/CXI_Report.pdf" target="_blank" rel="noopener">Read the report (PDF)</a>
+        <div class="links">
+          <span class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span></span>
         </div>
-      </div>
-    </div>
-  </section>
-  <section id="education">
-    <div class="grid">
-      <h2>Education</h2>
-      <div class="roles">
-        <article class="role">
-          <div class="when">Sep 2026 – Sep 2027<br>(expected)</div>
-          <div>
-            <h3>MSc Data Science and Artificial Intelligence</h3>
-            <div class="org">Middlesex University Dubai</div>
-          </div>
-        </article>
-        <article class="role">
-          <div class="when">2019 – 2023</div>
-          <div>
-            <h3>BE Mechanical Engineering</h3>
-            <div class="org">SRM Easwari Engineering College, India</div>
-          </div>
-        </article>
+        <div class="links">
+          <a class="btn" href="https://github.com/Athrey20an/Personal-Site/blob/main/projects/cxi/CXI_Prediction_Model.ipynb" target="_blank" rel="noopener">View notebook</a>
+          <a class="btn" href="https://athrey20an.github.io/Personal-Site/projects/cxi/CXI_Report.pdf" target="_blank" rel="noopener">Read report (PDF)</a>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="skills">
     <div class="grid">
-      <h2>Skills</h2>
-      <div class="skills">
+      <h2>Skills &amp; education</h2>
+      <div class="cols">
         <div>
-          <h3>Data &amp; technical</h3>
-          <ul>
-            <li>Oracle SQL</li>
-            <li>Python (pandas, scikit-learn)</li>
-            <li>Excel</li>
-            <li>UNIX</li>
-            <li>ETL testing</li>
-            <li>Data validation and reconciliation</li>
-            <li>SIT / UAT</li>
-            <li>Regression modelling</li>
+          <h4>Skills</h4>
+          <div class="skill-group"><p>Data &amp; technical</p><div class="tags"><span class="tag">Oracle SQL</span><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span><span class="tag">Excel</span><span class="tag">UNIX</span><span class="tag">ETL testing</span><span class="tag">SIT / UAT</span></div></div>
+          <div class="skill-group"><p>Customer &amp; commercial</p><div class="tags"><span class="tag">Account management</span><span class="tag">Forecasting</span><span class="tag">Pipeline tracking</span><span class="tag">Proposal pricing</span><span class="tag">CRM</span></div></div>
+        </div>
+        <div>
+          <h4>Education</h4>
+          <ul class="plain">
+            <li><b>MSc Data Science &amp; AI</b><br><span>Middlesex University Dubai · 2026–2027</span></li>
+            <li><b>BE Mechanical Engineering</b><br><span>SRM Easwari Engineering College · 2019–2023</span></li>
           </ul>
         </div>
         <div>
-          <h3>Customer &amp; commercial</h3>
-          <ul>
-            <li>Account management</li>
-            <li>Account-health reporting</li>
-            <li>Forecasting</li>
-            <li>Pipeline tracking</li>
-            <li>Proposal pricing and costing</li>
-            <li>Escalation handling</li>
-            <li>CRM records</li>
+          <h4>Certifications</h4>
+          <ul class="plain">
+            <li>Oracle Database SQL Certified Associate</li>
+            <li>Project Management, IIT Roorkee (NPTEL)</li>
+            <li>Project Management Simplified, PMI</li>
           </ul>
         </div>
         <div>
-          <h3>Coordination</h3>
-          <ul>
-            <li>Project documentation</li>
-            <li>Scheduling</li>
-            <li>Supplier and stakeholder coordination</li>
-            <li>Event organisation</li>
-            <li>Mentoring</li>
-            <li>PowerPoint</li>
+          <h4>Leadership &amp; languages</h4>
+          <ul class="plain">
+            <li>President, Society of Mechanical Engineers <span>(2022–23)</span></li>
+            <li>Student Chairperson, ISHRAE Chapter <span>(2022–23)</span></li>
+            <li>English (IELTS 7.5) · Tamil (native)</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="certifications">
-    <div class="grid">
-      <h2>Certifications</h2>
-      <ul class="list2">
-        <li><b>Oracle Database SQL Certified Associate</b><span>Oracle</span></li>
-        <li><b>Project Management</b><span>IIT Roorkee (NPTEL)</span></li>
-        <li><b>Project Management Simplified</b><span>PMI</span></li>
-        <li><b>LTIMindtree Ignite</b><span>LTIMindtree</span></li>
-        <li><b>UNIX for Beginners</b><span>Udemy</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="leadership">
-    <div class="grid">
-      <h2>Leadership</h2>
-      <div class="roles">
-        <article class="role">
-          <div class="when">Sep 2022 – May 2023</div>
-          <div>
-            <h3>President</h3>
-            <div class="org">Society of Mechanical Engineers (SME)</div>
-            <p>Led the team that organised the department's technical and non-technical events, including the national-level symposium Mcadroit '23.</p>
-          </div>
-        </article>
-        <article class="role">
-          <div class="when">Sep 2022 – May 2023</div>
-          <div>
-            <h3>Student Chairperson</h3>
-            <div class="org">ISHRAE Student Chapter</div>
-            <p>Organised technical events, including paper presentations and ISHRAE Day quizzes.</p>
-          </div>
-        </article>
-        <article class="role">
-          <div class="when">Sep 2022 – May 2023</div>
-          <div>
-            <h3>Student Ambassador</h3>
-            <div class="org">Campus Life EEC</div>
-            <p>Represented the Mechanical Engineering department at Campus Life EEC events.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="languages">
-    <div class="grid">
-      <h2>Languages</h2>
-      <ul class="list2">
-        <li><b>English</b><span>Fluent (IELTS 7.5)</span></li>
-        <li><b>Tamil</b><span>Native</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
+  <section id="contact">
     <div class="grid">
       <h2>Contact</h2>
       <div>
-        <h3>Hiring in Dubai? Let's talk.</h3>
-        <p style="margin:0;max-width:60ch">I'm open to on-site or hybrid roles in customer success, account management, data analysis and data engineering.</p>
-        <div class="links">
+        <p class="contact-head">Hiring in Dubai? Let's talk.</p>
+        <div class="actions">
           <a class="btn primary" href="mailto:athreyanathu14@gmail.com">Email me</a>
           <a class="btn" href="https://www.linkedin.com/in/athreyan-babu" target="_blank" rel="noopener">LinkedIn</a>
           <button class="btn" type="button" id="copy-email">Copy email</button>
-          <a class="btn" href="https://athrey20an.github.io/Personal-Site/Athreyan_Babu_Resume.pdf" target="_blank" rel="noopener">Download CV</a>
         </div>
-        <ul class="list2" style="margin-top:28px">
-          <li><b>Email</b><span>athreyanathu14@gmail.com</span></li>
-          <li><b>LinkedIn</b><span>linkedin.com/in/athreyan-babu</span></li>
-          <li><b>Phone (UAE)</b><span><a href="tel:+971551654159">+971 55 165 4159</a></span></li>
-          <li><b>Phone (India)</b><span><a href="tel:+917550245274">+91 75502 45274</a></span></li>
+        <ul class="contact-list">
+          <li><b>Email</b>athreyanathu14@gmail.com</li>
+          <li><b>LinkedIn</b>linkedin.com/in/athreyan-babu</li>
+          <li><b>Phone (UAE)</b><a href="tel:+971551654159">+971 55 165 4159</a></li>
+          <li><b>Phone (India)</b><a href="tel:+917550245274">+91 75502 45274</a></li>
         </ul>
       </div>
     </div>
@@ -536,40 +350,13 @@ footer { padding: 28px 0 48px; font-family: var(--mono); font-size: 12px; color:
 
 <script>
 (function () {
-  var start = 2019, total = 9 * 12;
-  function m(y, mo) { return (y - start) * 12 + (mo - 1); }
-  var segs = [
-    { label: "BE Mechanical, SRM Easwari", a: m(2019, 8), b: m(2023, 6), cls: "edu", row: 0 },
-    { label: "Coordinator", a: m(2023, 9), b: m(2024, 6), cls: "work", row: 1 },
-    { label: "LTIMindtree", a: m(2024, 6), b: m(2025, 8), cls: "work", row: 2 },
-    { label: "Cust. Success", a: m(2026, 1), b: m(2026, 9), cls: "work", row: 1 },
-    { label: "MSc DS & AI", a: m(2026, 9), b: m(2027, 9), cls: "now", row: 2 }
-  ];
-  var rail = document.getElementById("rail");
-  for (var y = 0; y <= 8; y++) {
-    var d = document.createElement("div");
-    d.className = "yr";
-    d.style.left = (y * 12 / total * 100) + "%";
-    d.innerHTML = "<span>" + (start + y) + "</span>";
-    rail.appendChild(d);
-  }
-  segs.forEach(function (s, i) {
-    var el = document.createElement("div");
-    el.className = "seg " + s.cls;
-    el.style.left = (s.a / total * 100) + "%";
-    el.style.width = ((s.b - s.a) / total * 100) + "%";
-    el.style.top = (10 + s.row * 38) + "px";
-    el.style.animationDelay = (i * 0.12) + "s";
-    el.title = s.full || s.label;
-    el.textContent = s.label;
-    rail.appendChild(el);
-  });
-
   var btn = document.getElementById("copy-email");
   btn.addEventListener("click", function () {
-    var done = function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy email"; }, 1800); };
     try {
-      navigator.clipboard.writeText("athreyanathu14@gmail.com").then(done, function () { btn.textContent = "Copy failed"; });
+      navigator.clipboard.writeText("athreyanathu14@gmail.com").then(function () {
+        btn.textContent = "Copied";
+        setTimeout(function () { btn.textContent = "Copy email"; }, 1800);
+      }, function () { btn.textContent = "Copy failed"; });
     } catch (e) { btn.textContent = "Copy failed"; }
   });
 })();
