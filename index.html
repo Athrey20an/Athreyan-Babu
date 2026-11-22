@@ -184,6 +184,16 @@ details.case[open] summary::before { content: "−"; }
 .certs-row + .certs-row { padding-top: 10px; border-top: 1px solid var(--line); }
 .certs-label { min-width: 120px; font-family: var(--mono); font-size: var(--fs-xs); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
 
+/* Recommendations */
+.quotes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.quote { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; position: relative; }
+.quote::before { content: "“"; position: absolute; top: 6px; right: 18px; font-family: var(--display); font-size: 64px; line-height: 1; color: var(--accent-soft); }
+.quote blockquote { margin: 0; font-size: var(--fs-md); line-height: 1.5; color: var(--ink); position: relative; }
+.quote figcaption { display: flex; align-items: center; gap: 12px; }
+.avatar { flex: none; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); font-family: var(--display); font-weight: 700; font-size: var(--fs-sm); }
+.quote figcaption b { display: block; font-size: var(--fs-base); font-weight: 600; }
+.quote figcaption small { display: block; font-size: var(--fs-xs); color: var(--muted); line-height: 1.4; }
+
 /* Contact */
 .contact { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: clamp(24px, 4vw, 48px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px 48px; align-items: center; }
 .contact p.lead { margin-top: 10px; color: var(--muted); max-width: 40ch; }
@@ -208,7 +218,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
   .case-body { grid-template-columns: minmax(0, 1fr); gap: 10px; }
 }
 @media (max-width: 760px) {
-  .panels { grid-template-columns: minmax(0, 1fr); }
+  .panels, .quotes { grid-template-columns: minmax(0, 1fr); }
   .tl-item { grid-template-columns: 20px minmax(0, 1fr); gap: 0 14px; }
   .tl-date { grid-column: 2; grid-row: 1; text-align: left; padding: 0 0 6px; }
   .tl-date br { display: none; }
@@ -241,6 +251,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
     </a>
     <nav class="site-nav" aria-label="Sections">
       <a href="#career">Career</a>
+      <a href="#recommendations">Recommendations</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
@@ -383,6 +394,31 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
       </li>
 
     </ol>
+  </section>
+
+  <section id="recommendations">
+    <div class="section-head">
+      <h2>Recommendations</h2>
+      <p><a href="https://www.linkedin.com/in/athreyan-babu/details/recommendations/" target="_blank" rel="noopener">Read all 9 on LinkedIn</a></p>
+    </div>
+    <div class="quotes">
+      <figure class="quote">
+        <blockquote>“He combines a strong customer-first mindset with a clear commercial instinct, making him effective at both delivering value and expanding the relationship.”</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true">NS</span><span><b>Nithish Sairam</b><small>CEO, Illumine Group of Industries · Senior colleague</small></span></figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>“Athreyan brings an incredible level of structure, clarity, and dedication to every project he handles.”</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true">AV</span><span><b>Aadithya Varman P</b><small>Customer Success &amp; Strategic Partnerships · Same team at Illumine-i</small></span></figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>“What truly sets Athreyan apart is his ability to explain complex technical concepts in a simple and structured way.”</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true">AM</span><span><b>Afrudeen M</b><small>Data Engineer, LTM · Same team at LTIMindtree</small></span></figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>“One of the most impressive aspects of Athreyan’s approach is his ability to stay calm and focused under pressure.”</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true">KG</span><span><b>Kevin Gabriel V</b><small>Key Account Manager, Zoho · Senior colleague</small></span></figcaption>
+      </figure>
+    </div>
   </section>
 
   <section id="projects">
