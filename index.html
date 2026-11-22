@@ -191,10 +191,15 @@ details.case[open] summary::before { content: "−"; }
 .pillar h3 { margin: 0; }
 .pnum { font-family: var(--mono); font-size: var(--fs-xs); color: var(--accent); }
 .pdesc { font-size: var(--fs-sm); color: var(--muted); margin-bottom: 4px; }
-.certs { display: grid; gap: 10px; margin-top: 16px; padding: 16px 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; font-size: var(--fs-sm); }
-.certs-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; }
-.certs-row + .certs-row { padding-top: 10px; border-top: 1px solid var(--line); }
-.certs-label { min-width: 120px; font-family: var(--mono); font-size: var(--fs-xs); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.certs { margin-top: 16px; padding: 20px 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+.certs-title { font-size: var(--fs-md); margin-bottom: 14px; }
+.cert-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.cert-list li { padding: 12px 14px; border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 10px; background: var(--bg); font-size: var(--fs-sm); line-height: 1.4; }
+.cert-list b { display: block; font-weight: 600; margin-bottom: 4px; }
+.cert-list span { display: block; color: var(--muted); font-size: var(--fs-xs); }
+.cert-list time { display: block; margin-top: 2px; font-family: var(--mono); font-size: 12px; color: var(--accent); }
+.langs { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); font-size: var(--fs-sm); display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; }
+.certs-label { font-family: var(--mono); font-size: var(--fs-xs); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
 
 /* Recommendations */
 .rec-group + .rec-group { margin-top: 32px; }
@@ -228,6 +233,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
   .glance { grid-template-columns: minmax(0, 1fr); }
   .glance-summary { border-right: 0; border-bottom: 1px solid var(--line); }
   .cards3 { grid-template-columns: minmax(0, 1fr); }
+  .cert-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .contact { grid-template-columns: minmax(0, 1fr); }
   .case-body { grid-template-columns: minmax(0, 1fr); gap: 10px; }
@@ -252,6 +258,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
   .lede { font-size: var(--fs-base); }
   .bar-row { grid-template-columns: 110px minmax(0, 1fr); font-size: var(--fs-xs); }
   .site-nav { display: none; }
+  .cert-list { grid-template-columns: minmax(0, 1fr); }
   .glance-grid { grid-template-columns: minmax(0, 1fr); }
   .glance-grid div:nth-child(2) { border-top: 1px solid var(--line); }
   .glance-grid div:nth-child(even) { border-left: 0; }
@@ -546,8 +553,9 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
       </div>
     </div>
     <div class="certs">
-      <div class="certs-row"><span class="certs-label">Certifications</span><span>Oracle Database SQL Certified Associate</span><span>Project Management, IIT Roorkee (NPTEL)</span><span>Project Management Simplified, PMI</span></div>
-      <div class="certs-row"><span class="certs-label">Languages</span><span>English (IELTS 7.5)</span><span>Tamil (native)</span></div>
+      <h3 class="certs-title">Certifications</h3>
+      <ul class="cert-list"><li><b>Oracle Database SQL Certified Associate</b><span>Oracle</span><time>Aug 2024</time></li><li><b>Project Management</b><span>IIT Roorkee (NPTEL)</span><time>Apr 2024</time></li><li><b>Project Management Simplified</b><span>Project Management Institute</span><time>Feb 2024</time></li><li><b>UNIX for Beginners</b><span>Udemy</span><time>Nov 2024</time></li><li><b>LTIMindtree Ignite</b><span>LTIMindtree</span><time>Jun 2023</time></li></ul>
+      <p class="langs"><span class="certs-label">Languages</span>English (IELTS 7.5) · Tamil (native)</p>
     </div>
   </section>
 
