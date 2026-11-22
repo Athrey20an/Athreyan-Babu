@@ -175,6 +175,11 @@ h2 {
 .proj-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 .proj-links .btn { padding: 9px 14px; font-size: 14.5px; }
 
+/* Case study inside role */
+.role-case { margin-top: 18px; border-left: 4px solid var(--accent); }
+.role-case h4 { font-size: 16.5px; margin-bottom: 10px; text-wrap: balance; }
+.role-case p { margin: 0 0 10px; font-size: 15px; max-width: 64ch; }
+.role-case p:last-child { margin-bottom: 0; }
 /* Case study */
 .case-meta { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin: 6px 0 22px; }
 .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -241,7 +246,6 @@ footer { padding: 28px 0 48px; font-family: var(--mono); font-size: 12px; color:
     <nav aria-label="Sections">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
-      <a href="#case-study">Case study</a>
       <a href="#project">Project</a>
       <a href="#education">Education</a>
       <a href="#skills">Skills</a>
@@ -314,10 +318,16 @@ footer { padding: 28px 0 48px; font-family: var(--mono); font-size: 12px; color:
               <li>Produced account-health reports, forecasts and pipeline updates to support leadership planning and delivery decisions.</li>
               <li>Priced and costed customer proposals totalling USD 950K+, including a USD 700K programme, and handled commercial discussions directly with clients.</li>
               <li>Delivered 15 customer programmes from signed proposal to final delivery, coordinating engineering, procurement and logistics teams.</li>
-              <li>Led a transformer procurement escalation, coordinating suppliers and internal teams to protect the customer's delivery timeline (<a href="#case-study">see case study</a>).</li>
+              <li>Led a transformer procurement escalation, coordinating suppliers and internal teams to protect the customer's delivery timeline.</li>
               <li>Kept customer records and activity history in the CRM; mentored 2 interns on customer communication and account processes.</li>
             </ul>
             <div class="tags"><span class="tag">Account management</span><span class="tag">Forecasting</span><span class="tag">Proposal pricing</span><span class="tag">CRM</span></div>
+            <div class="panel role-case">
+              <h4>Case study: transformer terminal clearance on a commercial solar project</h4>
+              <p><b>Problem.</b> Pad-mounted transformers supplied for several project sites had too little clearance between the neutral (X0) and Line A (X1) terminals to fit the required UL-listed lugs and conductors. That raised NEC compliance, safety and equipment suitability concerns, and it had to be fixed without more delays or risk to the warranty.</p>
+              <p><b>What I did.</b> I led procurement coordination and supplier engagement. I gathered measurements, site photos and technical details from engineering, field contractors and suppliers. I evaluated alternatives such as UL-listed neutral extension lugs, approached other manufacturers, and coordinated a formal technical request to the transformer manufacturer on terminal spacing and approved termination methods. Throughout, I weighed cost, warranty responsibility and technical approvals.</p>
+              <p><b>Outcome.</b> A potential workaround was identified for engineering and manufacturer validation, and the team gained an alternative sourcing route. It also showed the value of reviewing equipment specifications early.</p>
+            </div>
           </div>
         </article>
         <article class="role">
@@ -347,49 +357,6 @@ footer { padding: 28px 0 48px; font-family: var(--mono); font-size: 12px; color:
             <div class="tags"><span class="tag">Scheduling</span><span class="tag">Documentation</span><span class="tag">Customer communication</span></div>
           </div>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="case-study">
-    <div class="grid">
-      <h2>Case study</h2>
-      <div>
-        <h3 style="font-family:var(--display);font-weight:700;font-size:28px;line-height:1.2;letter-spacing:-0.01em;margin:0;text-wrap:balance">Transformer terminal clearance on a commercial solar project</h3>
-        <div class="case-meta">Illumine Industries · Customer Success Engineer · US commercial solar</div>
-        <div class="case-grid">
-          <div class="panel wide">
-            <h4>Overview</h4>
-            <p>Several pad-mounted transformers supplied for installation across multiple project sites had too little clearance between the neutral (X0) and Line A (X1) terminals. The required UL-listed cable lugs and conductors could not be installed while keeping proper electrical clearances.</p>
-          </div>
-          <div class="panel">
-            <h4>Challenge</h4>
-            <ul>
-              <li>Limited terminal spacing made compliant conductor termination difficult.</li>
-              <li>Standard lug installation was not possible in the space available.</li>
-              <li>The issue raised concerns about NEC compliance, installation safety and equipment suitability.</li>
-              <li>It had to be solved without more project delays or putting the equipment warranty at risk.</li>
-            </ul>
-          </div>
-          <div class="panel">
-            <h4>Actions taken</h4>
-            <ul>
-              <li>Coordinated with engineering, field contractors and suppliers to collect technical details, site photos and measurements.</li>
-              <li>Evaluated alternative termination options, including UL-listed neutral extension lugs.</li>
-              <li>Engaged alternative manufacturers and suppliers to find technically viable options.</li>
-              <li>Coordinated a formal technical request to the transformer manufacturer on terminal spacing, approved termination methods and installation feasibility.</li>
-              <li>Weighed cost, warranty responsibility and technical approvals before proceeding.</li>
-            </ul>
-          </div>
-          <div class="panel">
-            <h4>Outcome</h4>
-            <p>The issue went through a structured technical and procurement escalation, and a potential workaround was identified for engineering and manufacturer validation. The work also set up an alternative sourcing route and showed the value of reviewing equipment specifications and coordinating with suppliers early.</p>
-          </div>
-          <div class="panel role-panel">
-            <h4>My contribution</h4>
-            <p>I led procurement coordination and supplier engagement, ran communication between technical stakeholders, explored alternative solutions and supported the resolution plan, balancing technical compliance, cost, schedule and warranty.</p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
