@@ -185,10 +185,10 @@ details.case[open] summary::before { content: "−"; }
 .certs-label { min-width: 120px; font-family: var(--mono); font-size: var(--fs-xs); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
 
 /* Recommendations */
-.quotes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .quote { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; position: relative; }
 .quote::before { content: "“"; position: absolute; top: 6px; right: 18px; font-family: var(--display); font-size: 64px; line-height: 1; color: var(--accent-soft); }
-.quote blockquote { margin: 0; font-size: var(--fs-md); line-height: 1.5; color: var(--ink); position: relative; }
+.quote blockquote { margin: 0; font-size: var(--fs-base); line-height: 1.5; color: var(--ink); position: relative; }
 .quote figcaption { display: flex; align-items: center; gap: 12px; }
 .avatar { flex: none; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); font-family: var(--display); font-weight: 700; font-size: var(--fs-sm); }
 .quote figcaption b { display: block; font-size: var(--fs-base); font-weight: 600; }
@@ -214,6 +214,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
   .stat:nth-child(3) { border-left: 0; }
   .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
   .cards3 { grid-template-columns: minmax(0, 1fr); }
+  .quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .contact { grid-template-columns: minmax(0, 1fr); }
   .case-body { grid-template-columns: minmax(0, 1fr); gap: 10px; }
 }
@@ -399,7 +400,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
   <section id="recommendations">
     <div class="section-head">
       <h2>Recommendations</h2>
-      <p><a href="https://www.linkedin.com/in/athreyan-babu/details/recommendations/" target="_blank" rel="noopener">Read all 9 on LinkedIn</a></p>
+      <p><a href="https://www.linkedin.com/in/athreyan-babu/details/recommendations/" target="_blank" rel="noopener">View on LinkedIn</a></p>
     </div>
     <div class="quotes">
       <figure class="quote">
@@ -411,12 +412,32 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
         <figcaption><span class="avatar" aria-hidden="true">AV</span><span><b>Aadithya Varman P</b><small>Customer Success &amp; Strategic Partnerships · Same team at Illumine-i</small></span></figcaption>
       </figure>
       <figure class="quote">
+        <blockquote>“He is someone who consistently delivers high-quality work and approaches every task with a strong sense of responsibility and clarity.”</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true">VR</span><span><b>Vigneshwaran R</b><small>Software Engineer, LTM · Same team at LTIMindtree</small></span></figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>“His ability to understand problems quickly and provide practical solutions has helped the team on multiple occasions.”</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true">AS</span><span><b>Aravindkumar S</b><small>Data Engineer, LTIMindtree · College and LTIMindtree teammate</small></span></figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>“He consistently impressed me with his ability to quickly grasp new concepts and adapt to changing project needs.”</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true">VS</span><span><b>Vijayaraghavan S</b><small>Sales Operations, GameChange Energy · Senior colleague at Illumine-i</small></span></figcaption>
+      </figure>
+      <figure class="quote">
         <blockquote>“What truly sets Athreyan apart is his ability to explain complex technical concepts in a simple and structured way.”</blockquote>
         <figcaption><span class="avatar" aria-hidden="true">AM</span><span><b>Afrudeen M</b><small>Data Engineer, LTM · Same team at LTIMindtree</small></span></figcaption>
       </figure>
       <figure class="quote">
+        <blockquote>“He is one of those people who gets the job done no matter how tough the situation is.”</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true">PK</span><span><b>Prasanna Kumar K R</b><small>Solutions Consultant, Zoho Analytics · Mentor</small></span></figcaption>
+      </figure>
+      <figure class="quote">
         <blockquote>“One of the most impressive aspects of Athreyan’s approach is his ability to stay calm and focused under pressure.”</blockquote>
         <figcaption><span class="avatar" aria-hidden="true">KG</span><span><b>Kevin Gabriel V</b><small>Key Account Manager, Zoho · Senior colleague</small></span></figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>“Quick learner, go-getter and an enthusiastic team mate!”</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true">DP</span><span><b>Devadarsan PS</b><small>Technical Program Management · Same team</small></span></figcaption>
       </figure>
     </div>
   </section>
