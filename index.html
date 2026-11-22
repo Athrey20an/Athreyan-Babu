@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Athreyan Babu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a career track (2019 to 2027) sits under the name like a data timeline; sections below read as a clean two-column record. */
+:root {
+  --bg: #F2F4F3;
+  --surface: #FFFFFF;
+  --ink: #111A22;
+  --muted: #5A6772;
+  --line: #D6DCDB;
+  --accent: #1E5BC6;
+  --accent-soft: #DCE6F8;
+  --seg-edu: #9AA8B4;
+  --seg-work: #1E5BC6;
+  --seg-now: #0E8A6E;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1419;
+    --surface: #151D24;
+    --ink: #E8EDF0;
+    --muted: #98A6B1;
+    --line: #26323C;
+    --accent: #7FA8F2;
+    --accent-soft: #1B2B45;
+    --seg-edu: #56646F;
+    --seg-work: #5F8FE8;
+    --seg-now: #3CC39E;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1419;
+  --surface: #151D24;
+  --ink: #E8EDF0;
+  --muted: #98A6B1;
+  --line: #26323C;
+  --accent: #7FA8F2;
+  --accent-soft: #1B2B45;
+  --seg-edu: #56646F;
+  --seg-work: #5F8FE8;
+  --seg-now: #3CC39E;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+/* Top bar */
+.top {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 22px 0; font-family: var(--mono); font-size: 13px; color: var(--muted);
+  flex-wrap: wrap;
+}
+.top nav { display: flex; gap: 20px; flex-wrap: wrap; }
+.top nav a { color: var(--muted); text-decoration: none; }
+.top nav a:hover { color: var(--ink); }
+.status { display: inline-flex; align-items: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--seg-now); box-shadow: 0 0 0 4px color-mix(in srgb, var(--seg-now) 20%, transparent); }
+
+/* Hero */
+.hero { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+.kicker { font-family: var(--mono); font-size: 13px; letter-spacing: .04em; color: var(--accent); margin: 0 0 18px; }
+h1 {
+  font-family: var(--display); font-weight: 800;
+  font-size: clamp(52px, 10vw, 118px); line-height: .92; letter-spacing: -0.035em;
+  margin: 0; text-wrap: balance;
+}
+h1 .last { color: var(--accent); }
+.lede { max-width: 620px; font-size: 20px; line-height: 1.5; color: var(--ink); margin: 28px 0 0; text-wrap: pretty; }
+.lede span { color: var(--muted); }
+
+/* Career track */
+.track { margin-top: 52px; }
+.track-head { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; color: var(--muted); margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.rail { position: relative; height: 128px; border-top: 1px solid var(--line); }
+.yr { position: absolute; top: 0; bottom: 0; border-left: 1px dashed var(--line); }
+.yr span { position: absolute; bottom: -22px; left: 4px; font-family: var(--mono); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.seg {
+  position: absolute; height: 30px; border-radius: 4px; color: #fff;
+  font-size: 12.5px; font-weight: 500; padding: 0 10px; display: flex; align-items: center;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  animation: grow .9s cubic-bezier(.2,.7,.2,1) both;
+  transform-origin: left center;
+}
+.seg.edu { background: var(--seg-edu); }
+.seg.work { background: var(--seg-work); }
+.seg.now { background: var(--seg-now); }
+@keyframes grow { from { transform: scaleX(.15); opacity: .4; } to { transform: scaleX(1); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .seg { animation: none; } }
+.track-note { margin-top: 34px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+/* Sections */
+section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+.grid { display: grid; grid-template-columns: 220px 1fr; gap: 40px; }
+h2 {
+  font-family: var(--mono); font-weight: 500; font-size: 13px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--muted); margin: 6px 0 0;
+}
+.prose p { margin: 0 0 18px; max-width: 64ch; }
+.prose p:last-child { margin-bottom: 0; }
+
+/* Roles */
+.roles { display: grid; gap: 0; }
+.role { display: grid; grid-template-columns: 150px 1fr; gap: 24px; padding: 26px 0; border-top: 1px solid var(--line); }
+.role:first-child { border-top: 0; padding-top: 0; }
+.when { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 4px; }
+.role h3 { font-family: var(--display); font-weight: 700; font-size: 24px; line-height: 1.2; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+.org { color: var(--accent); font-weight: 500; margin: 2px 0 10px; }
+.role p { margin: 0; color: var(--ink); max-width: 60ch; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.tag { font-family: var(--mono); font-size: 12px; padding: 3px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--ink); }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.skills h3 { font-family: var(--display); font-size: 19px; font-weight: 700; margin: 0 0 10px; }
+.skills ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.skills li { padding-left: 16px; position: relative; color: var(--ink); }
+.skills li::before { content: ""; position: absolute; left: 0; top: .72em; width: 7px; height: 2px; background: var(--accent); }
+
+/* Contact */
+.contact h3 { font-family: var(--display); font-weight: 800; font-size: clamp(32px, 5vw, 52px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 18px; text-wrap: balance; }
+.links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 8px;
+  font-weight: 500; text-decoration: none; border: 1px solid var(--line); color: var(--ink); background: var(--surface);
+}
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.btn.todo { border-style: dashed; color: var(--muted); }
+
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 44px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stat { padding: 20px 16px 20px 0; }
+.stat + .stat { padding-left: 16px; border-left: 1px solid var(--line); }
+.stat b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(28px, 4vw, 40px); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.stat span { display: block; margin-top: 8px; font-size: 13.5px; color: var(--muted); line-height: 1.35; }
+.role ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; max-width: 62ch; }
+.role li::marker { color: var(--accent); }
+.meta { font-family: var(--mono); font-size: 12px; color: var(--muted); margin: -6px 0 10px; }
+.list2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; list-style: none; margin: 0; padding: 0; }
+.list2 li { padding: 12px 0; border-top: 1px solid var(--line); }
+.list2 li b { display: block; font-weight: 600; }
+.list2 li span { font-size: 14px; color: var(--muted); }
+.email-line { font-family: var(--mono); font-size: 14px; color: var(--muted); margin-top: 16px; }
+button.btn { font: inherit; cursor: pointer; }
+@media (max-width: 760px) {
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stat, .stat + .stat { padding: 16px 12px 16px 0; border-left: 0; border-top: 1px solid var(--line); }
+  .stat:nth-child(-n+2) { border-top: 0; }
+  .list2 { grid-template-columns: 1fr; }
+}
+
+footer { padding: 28px 0 48px; font-family: var(--mono); font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+@media (max-width: 760px) {
+  .grid { grid-template-columns: 1fr; gap: 18px; }
+  .role { grid-template-columns: 1fr; gap: 6px; }
+  .skills { grid-template-columns: 1fr; }
+  .rail { height: 150px; }
+  .seg { font-size: 11px; padding: 0 6px; }
+  .hero { padding-top: 32px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="status"><span class="dot" aria-hidden="true"></span>Dubai, UAE · Open to on-site or hybrid roles</div>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#project">Project</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <p class="kicker">Data Analysis · Customer Success · Project Coordination</p>
+    <h1>Athreyan<br><span class="last">Babu</span></h1>
+    <p class="lede">I've tested banking data with Oracle SQL and managed 17 strategic US accounts. <span>Now doing an MSc in Data Science &amp; AI at Middlesex University Dubai.</span></p>
+
+    <div class="stats">
+      <div class="stat"><b>2.5+</b><span>years in engineering, customer success and coordination</span></div>
+      <div class="stat"><b>17</b><span>strategic US customer accounts managed</span></div>
+      <div class="stat"><b>$950K+</b><span>in customer proposals priced and costed</span></div>
+      <div class="stat"><b>150+</b><span>projects coordinated for 43 US customers</span></div>
+      <div class="stat"><b>2–3</b><span>day turnaround held across a high-volume queue</span></div>
+    </div>
+
+    <div class="track" aria-label="Career timeline from 2019 to 2027">
+      <div class="track-head">
+        <span>Career track</span>
+        <span class="legend">
+          <span><i style="background:var(--seg-edu)"></i>Education</span>
+          <span><i style="background:var(--seg-work)"></i>Work</span>
+          <span><i style="background:var(--seg-now)"></i>Now</span>
+        </span>
+      </div>
+      <div class="rail" id="rail"></div>
+      <div class="track-note">Mechanical engineering → project coordination → banking data QA → customer success → MSc</div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="grid">
+      <h2>About</h2>
+      <div class="prose">
+        <p>I studied mechanical engineering, then started my career coordinating renewable-energy projects for US customers at Illumine Industries. In that role I handled more than 150 projects for 43 customers, from order to delivery.</p>
+        <p>At LTIMindtree I worked on a global US bank's applications. I ran SIT/UAT and ETL testing, reconciled high-volume banking data with Oracle SQL before production releases, and fixed failed batch jobs using UNIX error logs.</p>
+        <p>I returned to Illumine as a Customer Success Engineer. I managed 17 strategic US accounts, priced proposals worth more than USD 950K, and delivered 15 customer programmes from signed proposal to final delivery.</p>
+        <p>Now I'm studying for an MSc in Data Science and AI and building machine learning models in Python. I'm looking for roles that combine data skills with client work, in Dubai, on-site or hybrid.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="grid">
+      <h2>Experience</h2>
+      <div class="roles">
+        <article class="role">
+          <div class="when">Jan 2026 – Sep 2026</div>
+          <div>
+            <h3>Customer Success Engineer</h3>
+            <div class="org">Illumine Industries Pvt. Ltd.</div>
+            <div class="meta">India · US renewable-energy customers</div>
+            <ul>
+              <li>Managed a portfolio of 17 strategic US customer accounts as the main point of contact for enquiries, status updates and escalations.</li>
+              <li>Produced account-health reports, forecasts and pipeline updates to support leadership planning and delivery decisions.</li>
+              <li>Priced and costed customer proposals totalling USD 950K+, including a USD 700K programme, and handled commercial discussions directly with clients.</li>
+              <li>Delivered 15 customer programmes from signed proposal to final delivery, coordinating engineering, procurement and logistics teams.</li>
+              <li>Resolved a transformer procurement escalation by coordinating suppliers and internal teams to protect the customer's delivery timeline.</li>
+              <li>Kept customer records and activity history in the CRM; mentored 2 interns on customer communication and account processes.</li>
+            </ul>
+            <div class="tags"><span class="tag">Account management</span><span class="tag">Forecasting</span><span class="tag">Proposal pricing</span><span class="tag">CRM</span></div>
+          </div>
+        </article>
+        <article class="role">
+          <div class="when">Jun 2024 – Aug 2025</div>
+          <div>
+            <h3>Software Engineer</h3>
+            <div class="org">LTIMindtree</div>
+            <div class="meta">India · Client: global bank (US)</div>
+            <ul>
+              <li>Ran SIT/UAT and ETL testing, using Oracle SQL to validate and reconcile high-volume banking data before production releases.</li>
+              <li>Monitored 3–4 daily batch jobs in Control Center, diagnosed failures from UNIX error logs, and corrected and reran jobs until data loaded correctly.</li>
+              <li>Logged and tracked issues in the internal CRM, keeping clear records for audit and follow-up.</li>
+            </ul>
+            <div class="tags"><span class="tag">Oracle SQL</span><span class="tag">ETL testing</span><span class="tag">SIT / UAT</span><span class="tag">UNIX</span></div>
+          </div>
+        </article>
+        <article class="role">
+          <div class="when">Sep 2023 – Jun 2024</div>
+          <div>
+            <h3>Project Coordinator</h3>
+            <div class="org">Illumine Industries Pvt. Ltd.</div>
+            <div class="meta">India · US renewable-energy customers</div>
+            <ul>
+              <li>Coordinated 150+ projects for 43 US customers, managing schedules, documentation and customer communication from order to delivery.</li>
+              <li>Held a consistent 2–3 day turnaround across a high-volume project queue and kept customers informed on progress.</li>
+            </ul>
+            <div class="tags"><span class="tag">Scheduling</span><span class="tag">Documentation</span><span class="tag">Customer communication</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="project">
+    <div class="grid">
+      <h2>Analytics project</h2>
+      <div class="roles">
+        <article class="role">
+          <div class="when">2026</div>
+          <div>
+            <h3>Customer Experience Index (CXI) Prediction Model</h3>
+            <div class="org">MSc coursework · Middlesex University Dubai</div>
+            <ul>
+              <li>Built and evaluated Ridge regression and random forest models to predict a customer experience index from behavioural and purchase data, benchmarked against a mean baseline.</li>
+              <li>Found recent purchase volume to be the strongest predictor, connecting customer behaviour to customer experience outcomes.</li>
+            </ul>
+            <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span><span class="tag">Regression</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="grid">
+      <h2>Education</h2>
+      <div class="roles">
+        <article class="role">
+          <div class="when">Sep 2026 – Sep 2027<br>(expected)</div>
+          <div>
+            <h3>MSc Data Science and Artificial Intelligence</h3>
+            <div class="org">Middlesex University Dubai</div>
+          </div>
+        </article>
+        <article class="role">
+          <div class="when">2019 – 2023</div>
+          <div>
+            <h3>BE Mechanical Engineering</h3>
+            <div class="org">SRM Easwari Engineering College, India</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="grid">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div>
+          <h3>Data &amp; technical</h3>
+          <ul>
+            <li>Oracle SQL</li>
+            <li>Python (pandas, scikit-learn)</li>
+            <li>Excel</li>
+            <li>UNIX</li>
+            <li>ETL testing</li>
+            <li>Data validation and reconciliation</li>
+            <li>SIT / UAT</li>
+            <li>Regression modelling</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Customer &amp; commercial</h3>
+          <ul>
+            <li>Account management</li>
+            <li>Account-health reporting</li>
+            <li>Forecasting</li>
+            <li>Pipeline tracking</li>
+            <li>Proposal pricing and costing</li>
+            <li>Escalation handling</li>
+            <li>CRM records</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Coordination</h3>
+          <ul>
+            <li>Project documentation</li>
+            <li>Scheduling</li>
+            <li>Supplier and stakeholder coordination</li>
+            <li>Event organisation</li>
+            <li>Mentoring</li>
+            <li>PowerPoint</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="grid">
+      <h2>Certifications</h2>
+      <ul class="list2">
+        <li><b>Oracle Database SQL Certified Associate</b><span>Oracle</span></li>
+        <li><b>Project Management</b><span>IIT Roorkee (NPTEL)</span></li>
+        <li><b>Project Management Simplified</b><span>PMI</span></li>
+        <li><b>LTIMindtree Ignite</b><span>LTIMindtree</span></li>
+        <li><b>UNIX for Beginners</b><span>Udemy</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="leadership">
+    <div class="grid">
+      <h2>Leadership</h2>
+      <div class="roles">
+        <article class="role">
+          <div class="when">Sep 2022 – May 2023</div>
+          <div>
+            <h3>President</h3>
+            <div class="org">Society of Mechanical Engineers (SME)</div>
+            <p>Led the team that organised the department's technical and non-technical events, including the national-level symposium Mcadroit '23.</p>
+          </div>
+        </article>
+        <article class="role">
+          <div class="when">Sep 2022 – May 2023</div>
+          <div>
+            <h3>Student Chairperson</h3>
+            <div class="org">ISHRAE Student Chapter</div>
+            <p>Organised technical events, including paper presentations and ISHRAE Day quizzes.</p>
+          </div>
+        </article>
+        <article class="role">
+          <div class="when">Sep 2022 – May 2023</div>
+          <div>
+            <h3>Student Ambassador</h3>
+            <div class="org">Campus Life EEC</div>
+            <p>Represented the Mechanical Engineering department at Campus Life EEC events.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="languages">
+    <div class="grid">
+      <h2>Languages</h2>
+      <ul class="list2">
+        <li><b>English</b><span>Fluent (IELTS 7.5)</span></li>
+        <li><b>Tamil</b><span>Native</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="grid">
+      <h2>Contact</h2>
+      <div>
+        <h3>Hiring in Dubai? Let's talk.</h3>
+        <p style="margin:0;max-width:60ch">I'm open to on-site or hybrid roles in customer success, account management, data analysis and data engineering.</p>
+        <div class="links">
+          <a class="btn primary" href="mailto:athreyanathu14@gmail.com">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/athreyan-babu" target="_blank" rel="noopener">LinkedIn</a>
+          <button class="btn" type="button" id="copy-email">Copy email</button>
+        </div>
+        <ul class="list2" style="margin-top:28px">
+          <li><b>Email</b><span>athreyanathu14@gmail.com</span></li>
+          <li><b>LinkedIn</b><span>linkedin.com/in/athreyan-babu</span></li>
+          <li><b>Phone (UAE)</b><span><a href="tel:+971551654159">+971 55 165 4159</a></span></li>
+          <li><b>Phone (India)</b><span><a href="tel:+917550245274">+91 75502 45274</a></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Athreyan Babu</span>
+    <span>Dubai, UAE</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var start = 2019, total = 9 * 12;
+  function m(y, mo) { return (y - start) * 12 + (mo - 1); }
+  var segs = [
+    { label: "BE Mechanical, SRM Easwari", a: m(2019, 8), b: m(2023, 6), cls: "edu", row: 0 },
+    { label: "Project Coordinator", a: m(2023, 9), b: m(2024, 6), cls: "work", row: 1 },
+    { label: "Software Engineer, LTIMindtree", a: m(2024, 6), b: m(2025, 8), cls: "work", row: 2 },
+    { label: "Customer Success Engineer", a: m(2026, 1), b: m(2026, 9), cls: "work", row: 1 },
+    { label: "MSc DS & AI", a: m(2026, 9), b: m(2027, 9), cls: "now", row: 2 }
+  ];
+  var rail = document.getElementById("rail");
+  for (var y = 0; y <= 8; y++) {
+    var d = document.createElement("div");
+    d.className = "yr";
+    d.style.left = (y * 12 / total * 100) + "%";
+    d.innerHTML = "<span>" + (start + y) + "</span>";
+    rail.appendChild(d);
+  }
+  segs.forEach(function (s, i) {
+    var el = document.createElement("div");
+    el.className = "seg " + s.cls;
+    el.style.left = (s.a / total * 100) + "%";
+    el.style.width = ((s.b - s.a) / total * 100) + "%";
+    el.style.top = (10 + s.row * 38) + "px";
+    el.style.animationDelay = (i * 0.12) + "s";
+    el.title = s.label;
+    el.textContent = s.label;
+    rail.appendChild(el);
+  });
+
+  var btn = document.getElementById("copy-email");
+  btn.addEventListener("click", function () {
+    var done = function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy email"; }, 1800); };
+    try {
+      navigator.clipboard.writeText("athreyanathu14@gmail.com").then(done, function () { btn.textContent = "Copy failed"; });
+    } catch (e) { btn.textContent = "Copy failed"; }
+  });
+})();
+</script>
+</body>
+</html>
