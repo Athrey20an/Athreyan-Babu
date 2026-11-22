@@ -96,6 +96,7 @@ section { scroll-margin-top: 84px; }
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) clamp(200px, 23vw, 320px); gap: clamp(28px, 5vw, 80px); align-items: center; padding: clamp(28px, 5vw, 64px) 0 clamp(32px, 4vw, 48px); }
 .hero .eyebrow { margin-bottom: 16px; display: block; }
 h1 .last { color: var(--accent); }
+.lede strong { font-weight: 600; color: var(--accent); }
 .lede { max-width: 34em; font-size: var(--fs-md); line-height: 1.55; margin-top: 24px; }
 .hero .actions { margin-top: 28px; }
 .portrait { margin: 0; }
@@ -133,6 +134,9 @@ section { padding-top: var(--section-gap); }
 .badge.edu { background: #EEF2F6; color: var(--muted); }
 .badge.now { background: var(--mint-soft); color: #1F8A70; }
 .tl-sum { margin-top: 10px; font-size: var(--fs-base); }
+.tl-list { margin: 12px 0 0; padding-left: 18px; display: grid; gap: 5px; font-size: var(--fs-base); color: var(--ink); max-width: 78ch; }
+.tl-list li::marker { color: var(--accent); }
+.tl-item .tl-sum { color: var(--muted); font-size: var(--fs-sm); margin-top: 8px; }
 .metrics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .metric { display: inline-flex; align-items: baseline; gap: 6px; padding: 6px 12px; border-radius: 8px; background: var(--bg); border: 1px solid var(--line); font-size: var(--fs-sm); color: var(--muted); }
 .metric b { font-family: var(--display); font-weight: 700; font-size: var(--fs-base); color: var(--ink); }
@@ -185,6 +189,9 @@ details.case[open] summary::before { content: "−"; }
 .certs-label { min-width: 120px; font-family: var(--mono); font-size: var(--fs-xs); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
 
 /* Recommendations */
+.rec-group + .rec-group { margin-top: 32px; }
+.rec-co { font-size: var(--fs-md); display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
+.rec-co span { font-family: var(--body); font-weight: 400; font-size: var(--fs-sm); color: var(--muted); }
 .quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .quote { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; position: relative; }
 .quote::before { content: "“"; position: absolute; top: 6px; right: 18px; font-family: var(--display); font-size: 64px; line-height: 1; color: var(--accent-soft); }
@@ -268,7 +275,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
       <span class="status-pill"><span class="dot" aria-hidden="true"></span>Open to roles in Dubai · on-site or hybrid</span>
       <span class="eyebrow">Data Analysis · Business Reporting · Project Delivery</span>
       <h1>Athreyan<br><span class="last">Babu</span></h1>
-      <p class="lede">I turn data into decisions for clients and projects: reconciling banking data with Oracle SQL, reporting and forecasting across 17 strategic accounts, and coordinating 150+ projects. <span class="muted">Now doing an MSc in Data Science &amp; AI at Middlesex University Dubai.</span></p>
+      <p class="lede"><strong>Data analyst with a client-facing edge.</strong> I've reconciled high-volume data for a global bank, priced $950K+ in proposals across 17 US accounts, and kept 150+ projects on schedule. <span class="muted">Now building my machine learning skills with an MSc in Data Science &amp; AI in Dubai.</span></p>
       <div class="actions">
         <a class="btn primary" href="Athreyan_Babu_Resume.pdf" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
@@ -308,6 +315,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
             <span class="badge now">Current</span>
           </div>
           <p class="tl-sum">Machine learning, predictive modelling, and ethics and privacy in AI.</p>
+          <ul class="tl-list"><li>Built a CXI prediction model in Python (see Projects).</li></ul>
         </div>
       </li>
 
@@ -323,6 +331,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
             <span class="badge">Work</span>
           </div>
           <p class="tl-sum">Main contact for strategic US accounts, from proposal and pricing to delivery and escalations.</p>
+          <ul class="tl-list"><li>Handled enquiries, status updates and escalations as the main point of contact for each account.</li><li>Built account-health reports, forecasts and pipeline updates for leadership planning.</li><li>Priced and costed proposals, including a USD 700K programme, and led commercial talks with clients.</li><li>Coordinated engineering, procurement and logistics from signed proposal to final delivery.</li><li>Kept CRM records current and mentored 2 interns on customer communication.</li></ul>
           <div class="metrics">
             <span class="metric"><b>17</b>accounts</span>
             <span class="metric"><b>$950K+</b>proposals priced</span>
@@ -351,6 +360,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
             <span class="badge">Work</span>
           </div>
           <p class="tl-sum">SIT/UAT and ETL testing, reconciling high-volume banking data with Oracle SQL before releases.</p>
+          <ul class="tl-list"><li>Validated and reconciled high-volume banking data with Oracle SQL before each production release.</li><li>Monitored daily batch jobs in Control Center and fixed failures from UNIX error logs, rerunning jobs until data loaded correctly.</li><li>Logged and tracked issues in the internal CRM with clear records for audit and follow-up.</li></ul>
           <div class="metrics">
             <span class="metric"><b>Oracle SQL</b>reconciliation</span>
             <span class="metric"><b>3–4</b>daily batch jobs</span>
@@ -371,6 +381,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
             <span class="badge">Work</span>
           </div>
           <p class="tl-sum">Order-to-delivery coordination: schedules, documentation and customer updates.</p>
+          <ul class="tl-list"><li>Managed schedules, documentation and customer communication for each project from order to delivery.</li><li>Kept customers informed on progress across a high-volume project queue.</li></ul>
           <div class="metrics">
             <span class="metric"><b>150+</b>projects</span>
             <span class="metric"><b>43</b>customers</span>
@@ -390,7 +401,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
             </div>
             <span class="badge edu">Education</span>
           </div>
-          <p class="tl-sum">President, Society of Mechanical Engineers; Student Chairperson, ISHRAE chapter.</p>
+          <ul class="tl-list"><li>President, Society of Mechanical Engineers: led the team behind the national-level symposium Mcadroit '23.</li><li>Student Chairperson, ISHRAE chapter: organised paper presentations and ISHRAE Day quizzes.</li><li>Student Ambassador, Campus Life EEC.</li></ul>
         </div>
       </li>
 
@@ -402,43 +413,51 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
       <h2>Recommendations</h2>
       <p><a href="https://www.linkedin.com/in/athreyan-babu/details/recommendations/" target="_blank" rel="noopener">View on LinkedIn</a></p>
     </div>
-    <div class="quotes">
-      <figure class="quote">
-        <blockquote>“He combines a strong customer-first mindset with a clear commercial instinct, making him effective at both delivering value and expanding the relationship.”</blockquote>
-        <figcaption><span class="avatar" aria-hidden="true">NS</span><span><b>Nithish Sairam</b><small>CEO, Illumine Group of Industries · Senior colleague</small></span></figcaption>
-      </figure>
-      <figure class="quote">
-        <blockquote>“Athreyan brings an incredible level of structure, clarity, and dedication to every project he handles.”</blockquote>
-        <figcaption><span class="avatar" aria-hidden="true">AV</span><span><b>Aadithya Varman P</b><small>Customer Success &amp; Strategic Partnerships · Same team at Illumine-i</small></span></figcaption>
-      </figure>
-      <figure class="quote">
-        <blockquote>“He is someone who consistently delivers high-quality work and approaches every task with a strong sense of responsibility and clarity.”</blockquote>
-        <figcaption><span class="avatar" aria-hidden="true">VR</span><span><b>Vigneshwaran R</b><small>Software Engineer, LTM · Same team at LTIMindtree</small></span></figcaption>
-      </figure>
-      <figure class="quote">
-        <blockquote>“His ability to understand problems quickly and provide practical solutions has helped the team on multiple occasions.”</blockquote>
-        <figcaption><span class="avatar" aria-hidden="true">AS</span><span><b>Aravindkumar S</b><small>Data Engineer, LTIMindtree · College and LTIMindtree teammate</small></span></figcaption>
-      </figure>
-      <figure class="quote">
-        <blockquote>“He consistently impressed me with his ability to quickly grasp new concepts and adapt to changing project needs.”</blockquote>
-        <figcaption><span class="avatar" aria-hidden="true">VS</span><span><b>Vijayaraghavan S</b><small>Sales Operations, GameChange Energy · Senior colleague at Illumine-i</small></span></figcaption>
-      </figure>
-      <figure class="quote">
-        <blockquote>“What truly sets Athreyan apart is his ability to explain complex technical concepts in a simple and structured way.”</blockquote>
-        <figcaption><span class="avatar" aria-hidden="true">AM</span><span><b>Afrudeen M</b><small>Data Engineer, LTM · Same team at LTIMindtree</small></span></figcaption>
-      </figure>
-      <figure class="quote">
-        <blockquote>“He is one of those people who gets the job done no matter how tough the situation is.”</blockquote>
-        <figcaption><span class="avatar" aria-hidden="true">PK</span><span><b>Prasanna Kumar K R</b><small>Solutions Consultant, Zoho Analytics · Mentor</small></span></figcaption>
-      </figure>
-      <figure class="quote">
-        <blockquote>“One of the most impressive aspects of Athreyan’s approach is his ability to stay calm and focused under pressure.”</blockquote>
-        <figcaption><span class="avatar" aria-hidden="true">KG</span><span><b>Kevin Gabriel V</b><small>Key Account Manager, Zoho · Senior colleague</small></span></figcaption>
-      </figure>
-      <figure class="quote">
-        <blockquote>“Quick learner, go-getter and an enthusiastic team mate!”</blockquote>
-        <figcaption><span class="avatar" aria-hidden="true">DP</span><span><b>Devadarsan PS</b><small>Technical Program Management · Same team</small></span></figcaption>
-      </figure>
+    <div class="rec-group">
+      <h3 class="rec-co">Illumine Industries <span>6 recommendations</span></h3>
+      <div class="quotes">
+        <figure class="quote">
+          <blockquote>“He combines a strong customer-first mindset with a clear commercial instinct, making him effective at both delivering value and expanding the relationship.”</blockquote>
+          <figcaption><span class="avatar" aria-hidden="true">NS</span><span><b>Nithish Sairam</b><small>CEO, Illumine Group of Industries · Senior colleague</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>“Athreyan brings an incredible level of structure, clarity, and dedication to every project he handles.”</blockquote>
+          <figcaption><span class="avatar" aria-hidden="true">AV</span><span><b>Aadithya Varman P</b><small>Customer Success &amp; Strategic Partnerships · Same team</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>“He consistently impressed me with his ability to quickly grasp new concepts and adapt to changing project needs.”</blockquote>
+          <figcaption><span class="avatar" aria-hidden="true">VS</span><span><b>Vijayaraghavan S</b><small>Sales Operations, GameChange Energy · Senior colleague</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>“One of the most impressive aspects of Athreyan’s approach is his ability to stay calm and focused under pressure.”</blockquote>
+          <figcaption><span class="avatar" aria-hidden="true">KG</span><span><b>Kevin Gabriel V</b><small>Key Account Manager, Zoho · Senior colleague</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>“He is one of those people who gets the job done no matter how tough the situation is.”</blockquote>
+          <figcaption><span class="avatar" aria-hidden="true">PK</span><span><b>Prasanna Kumar K R</b><small>Solutions Consultant, Zoho Analytics · Mentor</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>“Quick learner, go-getter and an enthusiastic team mate!”</blockquote>
+          <figcaption><span class="avatar" aria-hidden="true">DP</span><span><b>Devadarsan PS</b><small>Technical Program Management · Same team</small></span></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="rec-group">
+      <h3 class="rec-co">LTIMindtree <span>3 recommendations</span></h3>
+      <div class="quotes">
+        <figure class="quote">
+          <blockquote>“What truly sets Athreyan apart is his ability to explain complex technical concepts in a simple and structured way.”</blockquote>
+          <figcaption><span class="avatar" aria-hidden="true">AM</span><span><b>Afrudeen M</b><small>Data Engineer, LTM · Same team</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>“He is someone who consistently delivers high-quality work and approaches every task with a strong sense of responsibility and clarity.”</blockquote>
+          <figcaption><span class="avatar" aria-hidden="true">VR</span><span><b>Vigneshwaran R</b><small>Software Engineer, LTM · Same team</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>“His ability to understand problems quickly and provide practical solutions has helped the team on multiple occasions.”</blockquote>
+          <figcaption><span class="avatar" aria-hidden="true">AS</span><span><b>Aravindkumar S</b><small>Data Engineer, LTIMindtree · College and work teammate</small></span></figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
