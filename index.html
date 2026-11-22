@@ -10,54 +10,28 @@
 <style>
 /* Layout idea: a career track (2019 to 2027) sits under the name like a data timeline; sections below read as a clean two-column record. */
 :root {
-  --bg: #F2F4F3;
+  /* Light-only theme: soft sky white, slate ink, friendly blue accent, mint for "now" */
+  --bg: #F7F9FC;
+  --bg-tint: #EAF2FD;
   --surface: #FFFFFF;
-  --ink: #111A22;
-  --muted: #5A6772;
-  --line: #D6DCDB;
-  --accent: #1E5BC6;
-  --accent-soft: #DCE6F8;
-  --seg-edu: #9AA8B4;
-  --seg-work: #1E5BC6;
-  --seg-now: #0E8A6E;
+  --ink: #2A3644;
+  --muted: #6E7C8A;
+  --line: #E2E8F0;
+  --accent: #3D7EDB;
+  --accent-soft: #E9F1FD;
+  --seg-edu: #B9C6D3;
+  --seg-work: #3D7EDB;
+  --seg-now: #2EAD8F;
   --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0E1419;
-    --surface: #151D24;
-    --ink: #E8EDF0;
-    --muted: #98A6B1;
-    --line: #26323C;
-    --accent: #7FA8F2;
-    --accent-soft: #1B2B45;
-    --seg-edu: #56646F;
-    --seg-work: #5F8FE8;
-    --seg-now: #3CC39E;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0E1419;
-  --surface: #151D24;
-  --ink: #E8EDF0;
-  --muted: #98A6B1;
-  --line: #26323C;
-  --accent: #7FA8F2;
-  --accent-soft: #1B2B45;
-  --seg-edu: #56646F;
-  --seg-work: #5F8FE8;
-  --seg-now: #3CC39E;
-  color-scheme: dark;
-}
 
 * { box-sizing: border-box; }
 html, body { margin: 0; }
 body {
-  background: var(--bg);
+  background: linear-gradient(180deg, var(--bg-tint) 0, var(--bg) 640px) no-repeat, var(--bg);
   color: var(--ink);
   font-family: var(--body);
   font-size: 17px;
@@ -161,7 +135,7 @@ h2 {
 .facts { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 16px 0 0; padding: 0; list-style: none; font-family: var(--mono); font-size: 13px; color: var(--muted); }
 .facts b { color: var(--ink); font-weight: 500; }
 .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
-.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; box-shadow: 0 1px 2px rgba(42,54,68,.04), 0 6px 18px rgba(61,126,219,.06); }
 .panel h4 { font-family: var(--display); font-size: 17px; font-weight: 700; margin: 0 0 4px; }
 .panel .sub { font-size: 13px; color: var(--muted); margin: 0 0 14px; }
 .bars { display: grid; gap: 10px; }
@@ -197,7 +171,7 @@ h2 {
 /* Hero with portrait */
 .hero-top { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: end; }
 .portrait { margin: 0; position: relative; }
-.portrait img { display: block; width: 100%; height: auto; border-radius: 10px; aspect-ratio: 4 / 5; object-fit: cover; }
+.portrait img { display: block; width: 100%; height: auto; border-radius: 14px; aspect-ratio: 4 / 5; object-fit: cover; box-shadow: 0 12px 32px rgba(61,126,219,.16); }
 .portrait::after { content: ""; position: absolute; left: -10px; bottom: -10px; width: 64px; height: 6px; background: var(--accent); border-radius: 3px; }
 @media (max-width: 760px) {
   .hero-top { grid-template-columns: 1fr; gap: 28px; }
