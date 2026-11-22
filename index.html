@@ -165,12 +165,15 @@ details.case[open] summary::before { content: "−"; }
 .panel h4 { font-size: var(--fs-base); font-family: var(--body); font-weight: 600; }
 .panel .sub { font-size: var(--fs-xs); color: var(--muted); margin: 2px 0 14px; }
 .bars { display: grid; gap: 10px; }
-.bar-row { display: grid; grid-template-columns: 130px minmax(0, 1fr) 52px; align-items: center; gap: 10px; font-size: var(--fs-sm); }
+.bar-row { display: grid; grid-template-columns: 130px minmax(0, 1fr); align-items: center; gap: 10px; font-size: var(--fs-sm); }
 .bar-track { height: 10px; background: #E6ECF3; border-radius: 3px; overflow: hidden; }
 .bar-fill { height: 100%; background: var(--accent); border-radius: 3px; }
 .bar-row.best { font-weight: 600; }
 .bar-row.best .bar-fill { background: var(--mint); }
 .val { font-family: var(--mono); font-size: var(--fs-xs); text-align: right; font-variant-numeric: tabular-nums; }
+.steps { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: var(--fs-sm); line-height: 1.5; }
+.steps li::marker { color: var(--accent); font-weight: 600; }
+.steps b { font-weight: 600; }
 .panel .note { font-size: var(--fs-xs); color: var(--muted); margin-top: 12px; }
 .proj-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
 
@@ -247,7 +250,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
   .portrait { order: -1; width: 168px; }
   .portrait img { border-radius: 50%; aspect-ratio: 1; object-position: 50% 18%; }
   .lede { font-size: var(--fs-base); }
-  .bar-row { grid-template-columns: 110px minmax(0, 1fr) 46px; font-size: var(--fs-xs); }
+  .bar-row { grid-template-columns: 110px minmax(0, 1fr); font-size: var(--fs-xs); }
   .site-nav { display: none; }
   .glance-grid { grid-template-columns: minmax(0, 1fr); }
   .glance-grid div:nth-child(2) { border-top: 1px solid var(--line); }
@@ -488,22 +491,22 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
       <p class="formula">CXI = 0.5 × (mean rating ÷ 5) + 0.3 × (mean sentiment) + 0.2 × (share of reviews with a helpful vote)</p>
       <div class="panels">
         <div class="panel">
-          <h4>Model comparison</h4>
-          <p class="sub">Test-set R², higher is better</p>
-          <div class="bars">
-            <div class="bar-row best"><span>Ridge</span><div class="bar-track"><div class="bar-fill" style="width:90.6%"></div></div><span class="val">0.362</span></div>
-            <div class="bar-row"><span>Random forest</span><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="val">0.320</span></div>
-            <div class="bar-row"><span>Mean baseline</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span class="val">−0.008</span></div>
-          </div>
-          <p class="note">Random forest overfit (0.80 R² on training data), so Ridge won.</p>
+          <h4>Approach</h4>
+          <p class="sub">From raw reviews to a predictive model</p>
+          <ol class="steps">
+            <li><b>Define the KPI.</b> Combined rating, review sentiment and helpfulness into one CXI score per product.</li>
+            <li><b>Engineer features.</b> Price, discount, sales rank, purchase volume, category and product text (TF-IDF).</li>
+            <li><b>Compare models.</b> Ridge regression and random forest, tuned with cross-validation and checked against a baseline.</li>
+            <li><b>Explain the result.</b> Permutation importance to show which product signals drive customer experience.</li>
+          </ol>
         </div>
         <div class="panel">
           <h4>Top drivers of CXI</h4>
-          <p class="sub">Permutation importance, drop in test R²</p>
+          <p class="sub">Relative importance in the final model</p>
           <div class="bars">
-            <div class="bar-row best"><span>Recent purchases</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="val">0.220</span></div>
-            <div class="bar-row"><span>Best Sellers Rank</span><div class="bar-track"><div class="bar-fill" style="width:48.1%"></div></div><span class="val">0.106</span></div>
-            <div class="bar-row"><span>Product text</span><div class="bar-track"><div class="bar-fill" style="width:28.7%"></div></div><span class="val">0.063</span></div>
+            <div class="bar-row best"><span>Recent purchases</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+            <div class="bar-row"><span>Best Sellers Rank</span><div class="bar-track"><div class="bar-fill" style="width:48.1%"></div></div></div>
+            <div class="bar-row"><span>Product text</span><div class="bar-track"><div class="bar-fill" style="width:28.7%"></div></div></div>
           </div>
           <p class="note">Price and discount had little effect.</p>
         </div>
