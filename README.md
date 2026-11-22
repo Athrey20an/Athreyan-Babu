@@ -1,5 +1,10 @@
 # Personal-Site
 
-Personal portfolio website of Athreyan Babu: Data Analysis, Customer Success and Project Coordination, based in Dubai.
+Portfolio website of Athreyan Babu (Data Analysis, Customer Success, Project Coordination), based in Dubai.
 
-The site is a single `index.html` file at the repo root.
+Live site: https://athrey20an.github.io/Personal-Site/
+
+- `index.html`: the website
+- `Athreyan_Babu_Resume.pdf`: CV
+- `projects/cxi/`: Customer Experience Index (CXI) prediction model notebook and report
+- `Athreyan_Babu_Website/`: previous version of the site

@@ -153,6 +153,42 @@ h2 {
 .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 .btn.todo { border-style: dashed; color: var(--muted); }
 
+/* Hero actions */
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+/* Project detail */
+.kpi-formula { font-family: var(--mono); font-size: 13.5px; line-height: 1.6; background: var(--accent-soft); padding: 12px 14px; border-radius: 8px; margin: 18px 0 0; overflow-x: auto; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 16px 0 0; padding: 0; list-style: none; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.facts b { color: var(--ink); font-weight: 500; }
+.panels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
+.panel h4 { font-family: var(--display); font-size: 17px; font-weight: 700; margin: 0 0 4px; }
+.panel .sub { font-size: 13px; color: var(--muted); margin: 0 0 14px; }
+.bars { display: grid; gap: 10px; }
+.bar-row { display: grid; grid-template-columns: 128px 1fr 52px; align-items: center; gap: 10px; font-size: 13.5px; }
+.bar-track { height: 12px; background: color-mix(in srgb, var(--line) 70%, transparent); border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+.bar-row.best .bar-fill { background: var(--seg-now); }
+.bar-row.best { font-weight: 600; }
+.val { font-family: var(--mono); font-size: 12.5px; text-align: right; font-variant-numeric: tabular-nums; }
+.panel .note { font-size: 12.5px; color: var(--muted); margin: 14px 0 0; }
+.proj-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.proj-links .btn { padding: 9px 14px; font-size: 14.5px; }
+
+/* Case study */
+.case-meta { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin: 6px 0 22px; }
+.case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.case-grid .panel ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 15.5px; }
+.case-grid .panel p { margin: 0; font-size: 15.5px; }
+.case-grid .panel li::marker { color: var(--accent); }
+.case-grid .wide { grid-column: 1 / -1; }
+.case-grid .panel.role-panel { border-left: 4px solid var(--accent); }
+
+@media (max-width: 760px) {
+  .panels, .case-grid { grid-template-columns: 1fr; }
+  .bar-row { grid-template-columns: 104px 1fr 48px; font-size: 12.5px; }
+}
+
 /* Hero with portrait */
 .hero-top { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: end; }
 .portrait { margin: 0; position: relative; }
@@ -205,6 +241,7 @@ footer { padding: 28px 0 48px; font-family: var(--mono); font-size: 12px; color:
     <nav aria-label="Sections">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
+      <a href="#case-study">Case study</a>
       <a href="#project">Project</a>
       <a href="#education">Education</a>
       <a href="#skills">Skills</a>
@@ -218,6 +255,10 @@ footer { padding: 28px 0 48px; font-family: var(--mono); font-size: 12px; color:
         <p class="kicker">Data Analysis · Customer Success · Project Coordination</p>
         <h1>Athreyan<br><span class="last">Babu</span></h1>
         <p class="lede">I've tested banking data with Oracle SQL and managed 17 strategic US accounts. <span>Now doing an MSc in Data Science &amp; AI at Middlesex University Dubai.</span></p>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://athrey20an.github.io/Personal-Site/Athreyan_Babu_Resume.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+          <a class="btn" href="#contact">Contact me</a>
+        </div>
       </div>
       <figure class="portrait">
         <img src="assets/athreyan.jpg" width="640" height="800" alt="Portrait of Athreyan Babu">
@@ -273,7 +314,7 @@ footer { padding: 28px 0 48px; font-family: var(--mono); font-size: 12px; color:
               <li>Produced account-health reports, forecasts and pipeline updates to support leadership planning and delivery decisions.</li>
               <li>Priced and costed customer proposals totalling USD 950K+, including a USD 700K programme, and handled commercial discussions directly with clients.</li>
               <li>Delivered 15 customer programmes from signed proposal to final delivery, coordinating engineering, procurement and logistics teams.</li>
-              <li>Resolved a transformer procurement escalation by coordinating suppliers and internal teams to protect the customer's delivery timeline.</li>
+              <li>Led a transformer procurement escalation, coordinating suppliers and internal teams to protect the customer's delivery timeline (<a href="#case-study">see case study</a>).</li>
               <li>Kept customer records and activity history in the CRM; mentored 2 interns on customer communication and account processes.</li>
             </ul>
             <div class="tags"><span class="tag">Account management</span><span class="tag">Forecasting</span><span class="tag">Proposal pricing</span><span class="tag">CRM</span></div>
@@ -310,26 +351,99 @@ footer { padding: 28px 0 48px; font-family: var(--mono); font-size: 12px; color:
     </div>
   </section>
 
-  <section id="project">
+  <section id="case-study">
     <div class="grid">
-      <h2>Analytics project</h2>
-      <div class="roles">
-        <article class="role">
-          <div class="when">2026</div>
-          <div>
-            <h3>Customer Experience Index (CXI) Prediction Model</h3>
-            <div class="org">MSc coursework · Middlesex University Dubai</div>
-            <ul>
-              <li>Built and evaluated Ridge regression and random forest models to predict a customer experience index from behavioural and purchase data, benchmarked against a mean baseline.</li>
-              <li>Found recent purchase volume to be the strongest predictor, connecting customer behaviour to customer experience outcomes.</li>
-            </ul>
-            <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span><span class="tag">Regression</span></div>
+      <h2>Case study</h2>
+      <div>
+        <h3 style="font-family:var(--display);font-weight:700;font-size:28px;line-height:1.2;letter-spacing:-0.01em;margin:0;text-wrap:balance">Transformer terminal clearance on a commercial solar project</h3>
+        <div class="case-meta">Illumine Industries · Customer Success Engineer · US commercial solar</div>
+        <div class="case-grid">
+          <div class="panel wide">
+            <h4>Overview</h4>
+            <p>Several pad-mounted transformers supplied for installation across multiple project sites had too little clearance between the neutral (X0) and Line A (X1) terminals. The required UL-listed cable lugs and conductors could not be installed while keeping proper electrical clearances.</p>
           </div>
-        </article>
+          <div class="panel">
+            <h4>Challenge</h4>
+            <ul>
+              <li>Limited terminal spacing made compliant conductor termination difficult.</li>
+              <li>Standard lug installation was not possible in the space available.</li>
+              <li>The issue raised concerns about NEC compliance, installation safety and equipment suitability.</li>
+              <li>It had to be solved without more project delays or putting the equipment warranty at risk.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h4>Actions taken</h4>
+            <ul>
+              <li>Coordinated with engineering, field contractors and suppliers to collect technical details, site photos and measurements.</li>
+              <li>Evaluated alternative termination options, including UL-listed neutral extension lugs.</li>
+              <li>Engaged alternative manufacturers and suppliers to find technically viable options.</li>
+              <li>Coordinated a formal technical request to the transformer manufacturer on terminal spacing, approved termination methods and installation feasibility.</li>
+              <li>Weighed cost, warranty responsibility and technical approvals before proceeding.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h4>Outcome</h4>
+            <p>The issue went through a structured technical and procurement escalation, and a potential workaround was identified for engineering and manufacturer validation. The work also set up an alternative sourcing route and showed the value of reviewing equipment specifications and coordinating with suppliers early.</p>
+          </div>
+          <div class="panel role-panel">
+            <h4>My contribution</h4>
+            <p>I led procurement coordination and supplier engagement, ran communication between technical stakeholders, explored alternative solutions and supported the resolution plan, balancing technical compliance, cost, schedule and warranty.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <section id="project">
+    <div class="grid">
+      <h2>Analytics project</h2>
+      <div>
+        <h3 style="font-family:var(--display);font-weight:700;font-size:28px;line-height:1.2;letter-spacing:-0.01em;margin:0;text-wrap:balance">Customer Experience Index (CXI) Prediction Model</h3>
+        <div class="case-meta">MSc coursework · Middlesex University Dubai · 2026</div>
+        <div class="prose">
+          <p>A marketplace team wants to flag products likely to disappoint customers early, so it can drop them or plan marketing to improve them. I built a product-level KPI from Amazon review data, then trained models to predict it from product attributes alone, with no review data as input.</p>
+        </div>
+        <p class="kpi-formula">CXI = 0.5 × (mean rating ÷ 5) + 0.3 × (mean normalised sentiment) + 0.2 × (share of reviews with ≥ 1 helpful vote)</p>
+        <ul class="facts">
+          <li><b>6,327</b> reviews</li>
+          <li><b>622</b> products with 5+ reviews</li>
+          <li><b>80/20</b> train/test split</li>
+          <li><b>12</b> input features incl. TF-IDF text</li>
+        </ul>
+
+        <div class="panels">
+          <div class="panel">
+            <h4>Model comparison</h4>
+            <p class="sub">Test-set R² (higher is better)</p>
+            <div class="bars">
+              <div class="bar-row best"><span>Ridge</span><div class="bar-track"><div class="bar-fill" style="width:90.6%"></div></div><span class="val">0.362</span></div>
+              <div class="bar-row"><span>Random forest</span><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div><span class="val">0.320</span></div>
+              <div class="bar-row"><span>Mean baseline</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span class="val">−0.008</span></div>
+            </div>
+            <p class="note">Ridge had the lowest test error (MAE 0.037, RMSE 0.047 vs 0.045 and 0.059 for the baseline). The random forest scored 0.80 R² on training data but 0.32 on test, so it overfit.</p>
+          </div>
+          <div class="panel">
+            <h4>What drives CXI</h4>
+            <p class="sub">Permutation importance: drop in test R² when a feature is shuffled</p>
+            <div class="bars">
+              <div class="bar-row best"><span>Recent purchases</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="val">0.220</span></div>
+              <div class="bar-row"><span>Best Sellers Rank</span><div class="bar-track"><div class="bar-fill" style="width:48.1%"></div></div><span class="val">0.106</span></div>
+              <div class="bar-row"><span>Product text</span><div class="bar-track"><div class="bar-fill" style="width:28.7%"></div></div><span class="val">0.063</span></div>
+              <div class="bar-row"><span>Category</span><div class="bar-track"><div class="bar-fill" style="width:15.9%"></div></div><span class="val">0.035</span></div>
+              <div class="bar-row"><span>Has BSR</span><div class="bar-track"><div class="bar-fill" style="width:9.7%"></div></div><span class="val">0.021</span></div>
+            </div>
+            <p class="note">Products with more recent purchases and a better sales rank scored higher on customer experience. Price and discount had little effect.</p>
+          </div>
+        </div>
+
+        <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span><span class="tag">Ridge regression</span><span class="tag">Random forest</span><span class="tag">TF-IDF</span><span class="tag">GridSearchCV</span></div>
+        <div class="proj-links">
+          <a class="btn" href="https://github.com/Athrey20an/Personal-Site/blob/main/projects/cxi/CXI_Prediction_Model.ipynb" target="_blank" rel="noopener">View notebook on GitHub</a>
+          <a class="btn" href="https://athrey20an.github.io/Personal-Site/projects/cxi/CXI_Report.pdf" target="_blank" rel="noopener">Read the report (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </section>
   <section id="education">
     <div class="grid">
       <h2>Education</h2>
@@ -461,6 +575,7 @@ footer { padding: 28px 0 48px; font-family: var(--mono); font-size: 12px; color:
           <a class="btn primary" href="mailto:athreyanathu14@gmail.com">Email me</a>
           <a class="btn" href="https://www.linkedin.com/in/athreyan-babu" target="_blank" rel="noopener">LinkedIn</a>
           <button class="btn" type="button" id="copy-email">Copy email</button>
+          <a class="btn" href="https://athrey20an.github.io/Personal-Site/Athreyan_Babu_Resume.pdf" target="_blank" rel="noopener">Download CV</a>
         </div>
         <ul class="list2" style="margin-top:28px">
           <li><b>Email</b><span>athreyanathu14@gmail.com</span></li>
