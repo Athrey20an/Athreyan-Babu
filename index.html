@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Athreyan Babu</title>
-<meta name="description" content="Athreyan Babu: Data Analysis, Customer Success and Project Coordination. MSc Data Science & AI, Middlesex University Dubai.">
+<meta name="description" content="Athreyan Babu: Data Analysis, Business Reporting and Project Delivery. MSc Data Science & AI, Middlesex University Dubai.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -68,13 +68,21 @@ h4 { font-size: var(--fs-md); font-weight: 600; line-height: 1.3; }
 .eyebrow { font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: .04em; color: var(--accent); }
 .muted { color: var(--muted); }
 
-/* Top bar */
-.top { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; padding: 20px 0; font-size: var(--fs-sm); color: var(--muted); flex-wrap: wrap; }
-.top nav { display: flex; gap: 24px; flex-wrap: wrap; }
-.top nav a { color: var(--muted); text-decoration: none; font-weight: 500; }
-.top nav a:hover { color: var(--ink); }
-.status { display: inline-flex; align-items: center; gap: 8px; }
+/* Site header: sticky white bar with monogram, nav and résumé button */
+.site-header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.88); -webkit-backdrop-filter: saturate(1.4) blur(12px); backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--line); box-shadow: 0 2px 14px rgba(42,54,68,.05); }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+.mono { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: linear-gradient(135deg, var(--accent), #5FA0F0); color: #fff; font-family: var(--display); font-weight: 800; font-size: 16px; letter-spacing: .02em; box-shadow: 0 4px 12px rgba(61,126,219,.3); }
+.brand-text { display: grid; line-height: 1.15; }
+.brand-text b { font-family: var(--display); font-weight: 700; font-size: 17px; }
+.brand-text span { font-size: 12.5px; color: var(--muted); }
+.site-nav { display: flex; align-items: center; gap: 4px; }
+.site-nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: var(--fs-sm); padding: 8px 14px; border-radius: 8px; }
+.site-nav a:hover { background: var(--accent-soft); color: var(--accent); }
+.site-header .btn { padding: 8px 16px; font-size: var(--fs-sm); }
+.status-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: var(--fs-sm); color: var(--muted); margin-bottom: 20px; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 4px rgba(46,173,143,.18); }
+section { scroll-margin-top: 84px; }
 
 /* Buttons */
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 10px; font: inherit; font-size: var(--fs-base); font-weight: 500; text-decoration: none; border: 1px solid var(--line); color: var(--ink); background: var(--surface); cursor: pointer; }
@@ -167,6 +175,15 @@ details.case[open] summary::before { content: "−"; }
 .plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: var(--fs-base); }
 .plain span { display: block; font-size: var(--fs-sm); color: var(--muted); }
 
+.pillar { display: flex; flex-direction: column; gap: 10px; border-top: 3px solid var(--accent); }
+.pillar h3 { margin: 0; }
+.pnum { font-family: var(--mono); font-size: var(--fs-xs); color: var(--accent); }
+.pdesc { font-size: var(--fs-sm); color: var(--muted); margin-bottom: 4px; }
+.certs { display: grid; gap: 10px; margin-top: 16px; padding: 16px 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; font-size: var(--fs-sm); }
+.certs-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; }
+.certs-row + .certs-row { padding-top: 10px; border-top: 1px solid var(--line); }
+.certs-label { min-width: 120px; font-family: var(--mono); font-size: var(--fs-xs); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+
 /* Contact */
 .contact { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: clamp(24px, 4vw, 48px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px 48px; align-items: center; }
 .contact p.lead { margin-top: 10px; color: var(--muted); max-width: 40ch; }
@@ -182,6 +199,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
 
 /* Tablet */
 @media (max-width: 960px) {
+  .site-nav a { padding: 8px 10px; }
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stat:nth-child(3) { border-left: 0; }
   .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
@@ -208,31 +226,39 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
   .portrait img { border-radius: 50%; aspect-ratio: 1; object-position: 50% 18%; }
   .lede { font-size: var(--fs-base); }
   .bar-row { grid-template-columns: 110px minmax(0, 1fr) 46px; font-size: var(--fs-xs); }
-  .top nav { gap: 16px; }
+  .site-nav { display: none; }
+  .brand-text span { display: none; }
   .contact-list li { flex-direction: column; gap: 2px; }
 }
 </style>
 </head>
 <body>
-<div class="wrap">
-
-  <header class="top">
-    <div class="status"><span class="dot" aria-hidden="true"></span>Dubai, UAE · Open to on-site or hybrid roles</div>
-    <nav aria-label="Sections">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Athreyan Babu, back to top">
+      <span class="mono" aria-hidden="true">AB</span>
+      <span class="brand-text"><b>Athreyan Babu</b><span>Data Analyst · Dubai</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Sections">
       <a href="#career">Career</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
-  </header>
+    <a class="btn primary header-cta" href="Athreyan_Babu_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+  </div>
+</header>
+
+<div class="wrap" id="top">
 
   <div class="hero">
     <div>
-      <span class="eyebrow">Data Analysis · Customer Success · Project Coordination</span>
+      <span class="status-pill"><span class="dot" aria-hidden="true"></span>Open to roles in Dubai · on-site or hybrid</span>
+      <span class="eyebrow">Data Analysis · Business Reporting · Project Delivery</span>
       <h1>Athreyan<br><span class="last">Babu</span></h1>
-      <p class="lede">I've reconciled banking data with Oracle SQL and managed 17 strategic US accounts. <span class="muted">Now doing an MSc in Data Science &amp; AI at Middlesex University Dubai.</span></p>
+      <p class="lede">I turn data into decisions for clients and projects: reconciling banking data with Oracle SQL, reporting and forecasting across 17 strategic accounts, and coordinating 150+ projects. <span class="muted">Now doing an MSc in Data Science &amp; AI at Middlesex University Dubai.</span></p>
       <div class="actions">
-        <a class="btn primary" href="https://athrey20an.github.io/Personal-Site/Athreyan_Babu_Resume.pdf" target="_blank" rel="noopener">
+        <a class="btn primary" href="Athreyan_Babu_Resume.pdf" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
           Résumé
         </a>
@@ -246,7 +272,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
 
   <div class="stats">
     <div class="stat"><b>2.5+</b><span>years of experience</span></div>
-    <div class="stat"><b>17</b><span>strategic US accounts managed</span></div>
+    <div class="stat"><b>17</b><span>strategic accounts reported on</span></div>
     <div class="stat"><b>$950K+</b><span>in proposals priced</span></div>
     <div class="stat"><b>150+</b><span>projects coordinated</span></div>
   </div>
@@ -395,8 +421,8 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
       </div>
       <div class="proj-foot">
         <div class="actions">
-          <a class="btn" href="https://github.com/Athrey20an/Personal-Site/blob/main/projects/cxi/CXI_Prediction_Model.ipynb" target="_blank" rel="noopener">View code</a>
-          <a class="btn" href="https://athrey20an.github.io/Personal-Site/projects/cxi/CXI_Report.pdf" target="_blank" rel="noopener">Read report</a>
+          <a class="btn" href="https://github.com/Athrey20an/Athreyan-Babu/blob/main/projects/cxi/CXI_Prediction_Model.ipynb" target="_blank" rel="noopener">View code</a>
+          <a class="btn" href="projects/cxi/CXI_Report.pdf" target="_blank" rel="noopener">Read report</a>
         </div>
       </div>
     </div>
@@ -404,25 +430,32 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
 
   <section id="skills">
     <div class="section-head">
-      <h2>Skills &amp; certifications</h2>
+      <h2>What I do</h2>
+      <p>One thread: using data to help clients and projects run well</p>
     </div>
     <div class="cards3">
-      <div class="card">
-        <h3>Data &amp; technical</h3>
-        <div class="tags"><span class="tag">Oracle SQL</span><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span><span class="tag">Excel</span><span class="tag">UNIX</span><span class="tag">ETL testing</span><span class="tag">SIT / UAT</span><span class="tag">Regression</span></div>
+      <div class="card pillar">
+        <span class="pnum">01</span>
+        <h3>Data analysis</h3>
+        <p class="pdesc">Clean, validate and model data so the numbers can be trusted.</p>
+        <div class="tags"><span class="tag">Oracle SQL</span><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span><span class="tag">Excel</span><span class="tag">Data reconciliation</span><span class="tag">Regression</span></div>
       </div>
-      <div class="card">
-        <h3>Customer &amp; commercial</h3>
-        <div class="tags"><span class="tag">Account management</span><span class="tag">Forecasting</span><span class="tag">Pipeline tracking</span><span class="tag">Proposal pricing</span><span class="tag">Escalations</span><span class="tag">CRM</span></div>
+      <div class="card pillar">
+        <span class="pnum">02</span>
+        <h3>Business reporting</h3>
+        <p class="pdesc">Turn account and pipeline data into reports leaders act on.</p>
+        <div class="tags"><span class="tag">Account-health reports</span><span class="tag">Forecasting</span><span class="tag">Pipeline tracking</span><span class="tag">Proposal pricing</span><span class="tag">CRM</span></div>
       </div>
-      <div class="card">
-        <h3>Certifications &amp; languages</h3>
-        <ul class="plain">
-          <li>Oracle Database SQL Certified Associate<span>Oracle</span></li>
-          <li>Project Management<span>IIT Roorkee (NPTEL) · PMI</span></li>
-          <li>English · Tamil<span>IELTS 7.5 · Native</span></li>
-        </ul>
+      <div class="card pillar">
+        <span class="pnum">03</span>
+        <h3>Project delivery</h3>
+        <p class="pdesc">Keep projects, releases and stakeholders on schedule.</p>
+        <div class="tags"><span class="tag">Project coordination</span><span class="tag">SIT / UAT</span><span class="tag">ETL testing</span><span class="tag">UNIX</span><span class="tag">Stakeholder management</span><span class="tag">Escalations</span></div>
       </div>
+    </div>
+    <div class="certs">
+      <div class="certs-row"><span class="certs-label">Certifications</span><span>Oracle Database SQL Certified Associate</span><span>Project Management, IIT Roorkee (NPTEL)</span><span>Project Management Simplified, PMI</span></div>
+      <div class="certs-row"><span class="certs-label">Languages</span><span>English (IELTS 7.5)</span><span>Tamil (native)</span></div>
     </div>
   </section>
 
@@ -430,7 +463,7 @@ footer { margin-top: var(--section-gap); padding: 24px 0 40px; font-size: var(--
     <div class="contact">
       <div>
         <h2>Get in touch</h2>
-        <p class="lead">Open to on-site or hybrid roles in Dubai: customer success, account management and data analysis.</p>
+        <p class="lead">Open to on-site or hybrid roles in Dubai in data analysis, business reporting and project delivery.</p>
         <div class="actions">
           <a class="btn primary" href="mailto:athreyanathu14@gmail.com">Send an email</a>
           <a class="btn" href="https://www.linkedin.com/in/athreyan-babu" target="_blank" rel="noopener">LinkedIn</a>
